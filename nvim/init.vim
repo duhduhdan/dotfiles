@@ -1,8 +1,5 @@
-" -----------------------------------------------------
-" General
-" -----------------------------------------------------
-set nocompatible      " not compatible with vi
-set autoread          " reload files when changed on disk
+set nocompatible
+set autoread
 
 let mapleader = "\<Space>"
 let g:mapleader = "\<Space>"
@@ -28,6 +25,8 @@ set listchars+=trail:.
 set tabpagemax=30
 set showcmd           " show current command going on
 
+set showtabline=2
+
 " Code folding settings
 set foldmethod=indent
 set nofoldenable      " Remove ugly folds
@@ -35,19 +34,16 @@ set diffopt=filler,context:9999 "nofold in diff mode
 
 set inccommand=split
 
-" -----------------------------------------------------
-" User Interface
-" -----------------------------------------------------
+set timeoutlen=500
+set ttimeoutlen=100
+
 set wildmenu          " enhanced command line completion
 set wildmode=list:longest,full
-set wildignore=log/**,target/**
 set wildignore+=*.DS_Store
-set wildignore+=*/_build**
-set wildignore+=*/node_modules/**
-set wildignore+=target/**
-set wildignore+=tmp/**
-set wildignore+=.meteor/local/**
-set wildignore+=~/projects/replatform/httpd/coverage/**
+set wildignore+=*/node_modules/*
+set wildignore+=*/__snapshots__/*
+set wildignore+=*/tmp/**
+set wildignore+=*/.jest/*
 set hidden            " allow buffer to be hidden when writing to disk
 set scrolloff=5       " show context above/below cursor line
 set shell=$SHELL
@@ -68,91 +64,103 @@ set visualbell
 
 set noshowmode        " lightline is prettier, don't need this
 
-syntax on             " enable syntax highlighting
-
-" set es to javascript syntax
-au BufNewFile,BufReadPost *.es6 set filetype=javascript
-au BufNewFile,BufReadPost *.json set filetype=javascript
+au BufRead,BufNewFile *.tag set filetype=html
 au BufRead,BufNewFile *.bash_profile set filetype=sh
 au BufRead,BufNewFile *.bashrc set filetype=sh
 au BufRead,BufNewFile Fastfile set filetype=ruby
 
+au FileType json syntax match Comment +\/\/.\+$+
+
 " Theme
 set encoding=utf8
 set number            " show the current line number
-set relativenumber
 
 set autoindent        " automatically set indent of new line
 set smartindent
 
-" -----------------------------------------------------
-" Files, backups and undo
-" -----------------------------------------------------
 set noswapfile        " Don't make backups.
 set nowritebackup     " Even if you did make a backup, don't keep it around.
 set nobackup
 
-" -----------------------------------------------------
-" Statusline
-" -----------------------------------------------------
 set laststatus=2      " show the status line all the time
+set cmdheight=2
+set updatetime=300
+set signcolumn=yes
+set linespace=3
 
-" -----------------------------------------------------
-" Mappings
-" -----------------------------------------------------
+filetype plugin on
+
 " QOL upgradez
 inoremap jk <Esc>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>n :noh<CR>
-nnoremap <Leader><Leader>s :vsplit<CR>
-nnoremap <Leader><Leader>h :split<CR>
-nnoremap <Leader>c :q<CR>
+nnoremap <Leader>q :q<CR>
+
+nnoremap <Leader>S :vsplit<CR>
+nnoremap <Leader>h :split<CR>
+
+nnoremap <C-t> :terminal<cr>
+
+nnoremap <leader>, <C-W><
+nnoremap <leader>. <C-W>>
+
+nnoremap <leader>< <C-W>+
+nnoremap <leader>> <C-W>-
 
 " hjkl keys navigate buffer splits
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
-" enter visual line mode
-nmap <Leader><Leader> V
+nnoremap <leader>r :edit<cr>
 
-" Tag Jumping:
-command! MakeTags !ctags -R .
-" Create the `tags` file (requires ctags)
-" - Use ^] to jump to tag under cursor
-" - Use g^] for a list of tags under cursor
-" - Use ^t to jump back up the tag stack
-
-" Get rid of trailing whitespace
-nnoremap <Leader>WS :%s/\s\+$//<CR>
+nnoremap <C-t> :terminal<Cr>
+tnoremap <leader>k <C-\><C-n>
 
 " buffer nav shortcuts
 nnoremap <leader>b :ls<CR>
 nnoremap <leader>H :bn<CR>
 nnoremap <leader>L :bp<CR>
 
-" nvim-terminal-emulator
-tnoremap <Esc> <C-\><C-n>
-tnoremap <C-h> <C-\><C-n><C-w>h
-tnoremap <C-j> <C-\><C-n><C-w>j
-tnoremap <C-k> <C-\><C-n><C-w>k
-tnoremap <C-l> <C-\><C-n><C-w>l
+" rebalance splits
+nnoremap <leader>= <c-w>=
 
-" -----------------------------------------------------
-" Plugins
-" -----------------------------------------------------
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.local/share/nvim/plugged')
 
-"source $HOME/.vim/bundles-neo.vimrc
-source $HOME/projects/dotfiles/vim/nvim/bundles.vimrc
+source $HOME/dotfiles/nvim/bundles.vimrc
 
 call plug#end()
 
-" -----------------------------------------------------
-" UI
-" -----------------------------------------------------
-set t_Co=256
-set termguicolors
+call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
 
-colorscheme synthwave
+set termguicolors
+set background=dark
+syntax on
+colorscheme quantum
+
+" ===============================================================================
+" Lightline Config
+" ===============================================================================
+if !exists('g:lightline')
+  source $HOME/dotfiles/nvim/lightline.vim
+endif
+
+
+" ===============================================================================
+" FZF Config
+" ===============================================================================
+source $HOME/dotfiles/nvim/fzf.vim
+
+
+" ===============================================================================
+" Coc config
+" ===============================================================================
+source $HOME/dotfiles/nvim/coc.vim
