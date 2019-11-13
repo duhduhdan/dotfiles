@@ -1,4 +1,5 @@
 {
   "typescript.suggest.autoImports": true,
-  "javascript.suggest.autoImports": true
+  "javascript.suggest.autoImports": true,
+  "tsserver.enableJavascript": true
 }

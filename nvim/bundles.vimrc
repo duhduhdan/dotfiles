@@ -7,10 +7,7 @@ Plug 'tpope/vim-repeat'
 "  =========================================
 "     Colorschemes
 "  =========================================
-Plug 'morhetz/gruvbox'
-Plug 'liuchengxu/space-vim-dark'
-Plug 'wdhg/dragon-energy'
-Plug 'kjssad/quantum.vim'
+Plug 'arcticicestudio/nord-vim'
 
 
 "  =========================================
@@ -28,7 +25,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
 Plug 'Shougo/denite.nvim'
+
 Plug 'chemzqm/denite-git'
+
 Plug 'neoclide/coc-denite'
 
 
@@ -40,24 +39,21 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 
 Plug 'w0rp/ale'
+  let g:ale_cache_executable_check_failures = 1
   let g:ale_fix_on_save = 1
   let g:ale_linters = {
       \ 'javascript': ['eslint', 'prettier'],
       \ 'javascript.jsx': ['eslint', 'prettier'],
-      \ 'typescript': ['tslint'],
-      \ 'typescript.tsx': ['tslint'],
-      \ 'typescriptreact': ['tslint'],
-      \ 'less': ['prettier'],
-      \ 'css': ['prettier'],
-      \ 'scss': ['prettier'],
-      \ 'python': ['yapf'],
+      \ 'typescript': ['eslint', 'prettier'],
+      \ 'typescript.tsx': ['eslint', 'prettier'],
+      \ 'typescriptreact': ['eslint', 'prettier'],
       \ }
   let g:ale_fixers = {
-      \ 'javascript': ['prettier'],
-      \ 'javascript.jsx': ['prettier'],
-      \ 'typescript': ['prettier', 'tslint'],
-      \ 'typescript.tsx': ['prettier', 'tslint'],
-      \ 'typescriptreact': ['prettier', 'tslint']
+      \ 'javascript': ['prettier', 'eslint'],
+      \ 'javascript.jsx': ['prettier', 'eslint'],
+      \ 'typescript': ['prettier', 'eslint'],
+      \ 'typescript.tsx': ['prettier', 'eslint'],
+      \ 'typescriptreact': ['prettier', 'eslint']
       \ }
   let g:ale_pattern_options = {
       \ '.*\.d.ts$': {'ale_enabled': 0}

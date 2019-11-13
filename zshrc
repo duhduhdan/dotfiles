@@ -36,6 +36,7 @@ alias ysr='yarn start --reset-cache'
 alias yx='yarn xcode'
 alias ii='yarn ios'
 alias gfm='git fetch origin master'
+alias gcm='git checkout master'
 alias d='doom run'
 
 export U='---'
@@ -52,7 +53,6 @@ export PATH=~/.emacs.d/bin:$PATH
 export PATH="$PATH:`pwd`/flutter/bin"
 export JAVA_HOME='$(/usr/libexec/java_home -v 1.8)'
 
-# export FZF_DEFAULT_COMMAND='rg --files --hidden --glob=!node_modules/* --glob=!__snapshots__/* --glob=!.git/* --glob=!.npm/* --glob=!.Trash/*'
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!node_modules/' -g '!___snapshots___/'"
 export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
 export FZF_ALT_C_COMMAND='$FZF_DEFAULT_COMMAND'
@@ -81,3 +81,4 @@ if [ -f '/Users/dan.loudon/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/dan.loudon/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dan.loudon/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/usr/local/opt/ruby/bin:$PATH"

@@ -83,7 +83,6 @@ set nowritebackup     " Even if you did make a backup, don't keep it around.
 set nobackup
 
 set laststatus=2      " show the status line all the time
-set cmdheight=2
 set updatetime=300
 set signcolumn=yes
 set linespace=3
@@ -142,9 +141,10 @@ call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap
 call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
 
 set termguicolors
+set t_Co=256
 set background=dark
 syntax on
-colorscheme quantum
+colorscheme nord
 
 " ===============================================================================
 " Lightline Config
