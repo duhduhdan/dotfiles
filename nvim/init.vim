@@ -25,7 +25,7 @@ set listchars+=trail:.
 set tabpagemax=30
 set showcmd           " show current command going on
 
-set showtabline=2
+set showtabline=0
 
 " Code folding settings
 set foldmethod=indent
@@ -86,6 +86,8 @@ set laststatus=2      " show the status line all the time
 set updatetime=300
 set signcolumn=yes
 set linespace=3
+set cmdheight=2
+set shortmess+=c
 
 filetype plugin on
 
@@ -144,7 +146,8 @@ set termguicolors
 set t_Co=256
 set background=dark
 syntax on
-colorscheme nord
+
+colorscheme bluewery
 
 " ===============================================================================
 " Lightline Config

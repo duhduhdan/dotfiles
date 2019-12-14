@@ -34,7 +34,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
-
 nmap <leader>qf <Plug>(coc-fix-current)
 
 " Setup formatexpr specified filetype(s).

@@ -7,7 +7,7 @@ Plug 'tpope/vim-repeat'
 "  =========================================
 "     Colorschemes
 "  =========================================
-Plug 'arcticicestudio/nord-vim'
+Plug 'relastle/bluewery.vim'
 
 
 "  =========================================
@@ -39,22 +39,47 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 
 Plug 'w0rp/ale'
+  fun! ChooseAleOptions()
+    let tslint_projects = ['infusionsoft-sms', 'mobile-notifications-service']
+    let tail = fnamemodify(getcwd(), ':t')
+
+    if (index(tslint_projects, tail) >= 0)
+      let g:ale_linters = {
+          \ 'javascript': ['tslint', 'prettier'],
+          \ 'javascript.jsx': ['tslint', 'prettier'],
+          \ 'typescript': ['tslint', 'prettier'],
+          \ 'typescript.tsx': ['tslint', 'prettier'],
+          \ 'typescriptreact': ['tslint', 'prettier'],
+          \ }
+      let g:ale_fixers = {
+          \ 'javascript': ['tslint', 'prettier'],
+          \ 'javascript.jsx': ['tslint', 'prettier'],
+          \ 'typescript': ['tslint', 'prettier'],
+          \ 'typescript.tsx': ['tslint', 'prettier'],
+          \ 'typescriptreact': ['tslint', 'prettier']
+          \ }
+    else
+      let g:ale_linters = {
+         \ 'javascript': ['eslint', 'prettier'],
+         \ 'javascript.jsx': ['eslint', 'prettier'],
+         \ 'typescript': ['eslint', 'prettier'],
+         \ 'typescript.tsx': ['eslint', 'prettier'],
+         \ 'typescriptreact': ['eslint', 'prettier'],
+         \ }
+      let g:ale_fixers = {
+         \ 'javascript': ['prettier', 'eslint'],
+         \ 'javascript.jsx': ['prettier', 'eslint'],
+         \ 'typescript': ['prettier', 'eslint'],
+         \ 'typescript.tsx': ['prettier', 'eslint'],
+         \ 'typescriptreact': ['prettier', 'eslint']
+         \ }
+    endif
+  endfun
+
+  call ChooseAleOptions()
+
   let g:ale_cache_executable_check_failures = 1
   let g:ale_fix_on_save = 1
-  let g:ale_linters = {
-      \ 'javascript': ['eslint', 'prettier'],
-      \ 'javascript.jsx': ['eslint', 'prettier'],
-      \ 'typescript': ['eslint', 'prettier'],
-      \ 'typescript.tsx': ['eslint', 'prettier'],
-      \ 'typescriptreact': ['eslint', 'prettier'],
-      \ }
-  let g:ale_fixers = {
-      \ 'javascript': ['prettier', 'eslint'],
-      \ 'javascript.jsx': ['prettier', 'eslint'],
-      \ 'typescript': ['prettier', 'eslint'],
-      \ 'typescript.tsx': ['prettier', 'eslint'],
-      \ 'typescriptreact': ['prettier', 'eslint']
-      \ }
   let g:ale_pattern_options = {
       \ '.*\.d.ts$': {'ale_enabled': 0}
       \ }
@@ -74,11 +99,11 @@ Plug 'airblade/vim-gitgutter'
 
 Plug 'alvan/vim-closetag'
   let g:closetag_filenames = '*.jsx,*.tsx,*.ts,*.js,*.jsx'
-
-Plug 'ianding1/leetcode.vim'
-  let g:leetcode_solution_filetype='javascript'
-  let g:leetcode_username=$U
-  let g:leetcode_password=$PW
+  let g:closetag_regions = {
+      \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+      \ 'typescriptreact': 'jsxRegion,tsxRegion',
+      \ 'javascript.jsx': 'jsxRegion'
+      \ }
 
 Plug 'sheerun/vim-polyglot'
 

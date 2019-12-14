@@ -6,7 +6,7 @@ export NVM_DIR=$HOME/.nvm
 # source ~/.nvm/nvm.sh
 
 # Path to your oh-my-zsh installation.
-export ZSH='/Users/dan.loudon/.oh-my-zsh'
+export ZSH=$HOME/.oh-my-zsh
 
 plugins=(git ripgrep zsh_reload)
 
@@ -28,7 +28,7 @@ alias la='ls -la'
 alias g='git'
 alias gl='listFiles'
 alias cdi='cd ~/projects/infusionsoft-mobile'
-alias cds='cd ~/projects/infusionsoft-sms/functions'
+alias cds='cd ~/projects/infusionsoft-sms'
 alias cdn='cd ~/dotfiles/nvim'
 alias gbc='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 alias ys='yarn start'
@@ -77,8 +77,10 @@ kitty + complete setup zsh | source /dev/stdin
 eval $(thefuck --alias)
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/dan.loudon/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dan.loudon/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+# if [ -f '/Users/dan.loudon/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dan.loudon/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f $HOME/Downloads/google-cloud-sdk/path.zsh.inc ]; then . $HOME/Downloads/google-cloud-sdk/path.zsh.inc; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/dan.loudon/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dan.loudon/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+# if [ -f '/Users/dan.loudon/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dan.loudon/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f $HOME/Downloads/google-cloud-sdk/completion.zsh.inc ]; then . $HOME/Downloads/google-cloud-sdk/completion.zsh.inc; fi
 export PATH="/usr/local/opt/ruby/bin:$PATH"
