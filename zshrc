@@ -52,6 +52,7 @@ export TMPDIR=$HOME/tmp
 export PATH=~/.emacs.d/bin:$PATH
 export PATH="$PATH:`pwd`/flutter/bin"
 export JAVA_HOME='$(/usr/libexec/java_home -v 1.8)'
+# export GEM_HOME="$HOME/.gem"
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!node_modules/' -g '!___snapshots___/'"
 export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
@@ -84,3 +85,6 @@ if [ -f $HOME/Downloads/google-cloud-sdk/path.zsh.inc ]; then . $HOME/Downloads/
 # if [ -f '/Users/dan.loudon/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dan.loudon/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 if [ -f $HOME/Downloads/google-cloud-sdk/completion.zsh.inc ]; then . $HOME/Downloads/google-cloud-sdk/completion.zsh.inc; fi
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

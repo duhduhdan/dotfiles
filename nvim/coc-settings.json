@@ -1,5 +1,6 @@
 {
   "typescript.suggest.autoImports": true,
   "javascript.suggest.autoImports": true,
-  "tsserver.enableJavascript": true
+  "tsserver.enableJavascript": true,
+  "python.jediEnabled": false
 }
