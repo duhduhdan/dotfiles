@@ -7,10 +7,8 @@ Plug 'tpope/vim-repeat'
 "  =========================================
 "     Colorschemes
 "  =========================================
-Plug 'relastle/bluewery.vim'
-Plug 'kaicataldo/material.vim'
-Plug 'ayu-theme/ayu-vim'
-Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'chriskempson/base16-vim'
+Plug 'mike-hearn/base16-vim-lightline'
 
 "  =========================================
 "     FZF Goodness

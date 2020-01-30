@@ -142,12 +142,12 @@ call plug#end()
 call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
 call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
 
+let base16colorspace=256
 set termguicolors
 syntax on
 set background=dark
 
-let ayucolor="dark"
-colorscheme ayu
+colorscheme base16-tomorrow-night-eighties
 
 " ===============================================================================
 " Lightline Config

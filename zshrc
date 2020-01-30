@@ -22,6 +22,12 @@ fo() {
   [[ -n '$files' ]] && ${EDITOR:-nvim} '${files[@]}'
 }
 
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
 alias c='clear'
 alias n='nvim'
 alias la='ls -la'
@@ -51,8 +57,12 @@ export TMPDIR=$HOME/tmp
 # export PATH=/usr/local/bin:$PATH
 export PATH=~/.emacs.d/bin:$PATH
 export PATH="$PATH:`pwd`/flutter/bin"
-export JAVA_HOME='$(/usr/libexec/java_home -v 1.8)'
-# export GEM_HOME="$HOME/.gem"
+# export JAVA_HOME='$(/usr/libexec/java_home -v 1.8)'
+export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home
+# export GEM_PATH=~/.gem/ruby/2.6.0
+# export PATH=$GEM_PATH/bin:$PATH
+export PATH=$PATH:/Users/dan.loudon/Library/Android/sdk/platform-tools
+export ANDROID_HOME=/Users/dan.loudon/Library/Android/sdk
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!node_modules/' -g '!___snapshots___/'"
 export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
