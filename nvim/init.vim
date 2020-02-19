@@ -147,7 +147,7 @@ set termguicolors
 syntax on
 set background=dark
 
-colorscheme base16-tomorrow-night-eighties
+colorscheme base16-eighties
 
 " ===============================================================================
 " Lightline Config
