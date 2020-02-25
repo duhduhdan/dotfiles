@@ -119,7 +119,7 @@ Plug 'maximbaz/lightline-ale'
 
 Plug 'vimwiki/vimwiki'
 
-" Plug 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 
 Plug 'mgee/lightline-bufferline'
   nmap <Leader>1 <Plug>lightline#bufferline#go(1)
