@@ -43,6 +43,7 @@ alias yx='yarn xcode'
 alias ii='yarn ios'
 alias gfm='git fetch origin master'
 alias gcm='git checkout master'
+alias gs='git status'
 alias d='doom run'
 
 export U='---'

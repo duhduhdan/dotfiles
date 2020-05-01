@@ -147,7 +147,7 @@ set termguicolors
 syntax on
 set background=dark
 
-colorscheme base16-seti
+colorscheme base16-black-metal-venom
 
 " ===============================================================================
 " Lightline Config

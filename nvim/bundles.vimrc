@@ -8,6 +8,7 @@ Plug 'tpope/vim-repeat'
 "     Colorschemes
 "  =========================================
 Plug 'chriskempson/base16-vim'
+
 Plug 'mike-hearn/base16-vim-lightline'
 
 "  =========================================
@@ -91,7 +92,9 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   let g:prettier#config#bracket_spacing = 'true'
   let g:prettier#config#single_quote = 'true'
 
-  let g:prettier#config#parser = 'typescript'
+  let g:prettier#exec_cmd_async = 1
+
+  " let g:prettier#config#parser = 'typescript'
 
 Plug 'tpope/vim-fugitive'
 
