@@ -30,7 +30,7 @@ Clone this repo to `$HOME` and make sure the following are all installed and con
 * [`neovim`](https://github.com/neovim/neovim/wiki/Installing-Neovim#macos--os-x)
   - Symlink nvim:
   ```
-  ln -s ~/dotfiles/kitty ~/.config/nvim
+  ln -s ~/dotfiles/nvim ~/.config/nvim
   ```
 
   - Symlink nvim init:
