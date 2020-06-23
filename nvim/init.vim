@@ -89,6 +89,8 @@ set linespace=3
 set cmdheight=2
 set shortmess+=c
 
+set rnu
+
 filetype plugin on
 
 " QOL upgradez
@@ -147,7 +149,7 @@ set termguicolors
 syntax on
 set background=dark
 
-colorscheme base16-helios
+colorscheme angr
 
 " ===============================================================================
 " Lightline Config

@@ -11,6 +11,8 @@ Plug 'chriskempson/base16-vim'
 
 Plug 'mike-hearn/base16-vim-lightline'
 
+Plug 'rafi/awesome-vim-colorschemes'
+
 "  =========================================
 "     FZF Goodness
 "  =========================================
