@@ -144,12 +144,12 @@ call plug#end()
 call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
 call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
 
-let base16colorspace=256
 set termguicolors
 syntax on
-set background=dark
 
-colorscheme angr
+let g:tokyonight_style = 'storm'
+
+colorscheme tokyonight
 
 " ===============================================================================
 " Lightline Config
@@ -164,8 +164,3 @@ endif
 " ===============================================================================
 source $HOME/dotfiles/nvim/fzf.vim
 
-
-" ===============================================================================
-" Coc config
-" ===============================================================================
-source $HOME/dotfiles/nvim/coc.vim

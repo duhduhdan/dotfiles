@@ -7,25 +7,41 @@ Plug 'tpope/vim-repeat'
 "  =========================================
 "     Colorschemes
 "  =========================================
-Plug 'chriskempson/base16-vim'
+Plug 'ryuta69/elly.vim'
 
-Plug 'mike-hearn/base16-vim-lightline'
+Plug 'embark-theme/vim', { 'as': 'embark' }
 
-Plug 'rafi/awesome-vim-colorschemes'
+Plug 'ghifarit53/tokyonight-vim'
+
+Plug 'romgrk/doom-one.vim'
+
 
 "  =========================================
 "     FZF Goodness
 "  =========================================
-Plug '/usr/local/opt/fzf'
+" Plug '/usr/local/opt/fzf'
 
+" Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
   nnoremap <leader>g :GFiles<Cr>
+
+Plug 'mileszs/ack.vim'
+  let g:ackprg = 'rg --vimgrep --type-not sql --smart-case --ignore'
+  let g:ack_autoclose = 1
+  let g:ack_use_cword_for_empty_search = 1
+  let g:ackhighlight = 1
+
+  cnoreabbrev Ack Ack!
+  nnoremap <leader>/ :Ack!<Space>
+  " nnoremap <silent> [q :cprevious<CR>
+  " nnoremap <silent> ]q :cnext<CR>
 
 
 "  =========================================
 "     Denite and complete
 "  =========================================
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'tag': 'v0.0.78', 'branch': 'release'}
 
 Plug 'Shougo/denite.nvim'
 
@@ -42,44 +58,22 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 
 Plug 'w0rp/ale'
-  fun! ChooseAleOptions()
-    let tslint_projects = ['infusionsoft-sms', 'mobile-notifications-service']
-    let tail = fnamemodify(getcwd(), ':t')
-
-    if (index(tslint_projects, tail) >= 0)
-      let g:ale_linters = {
-          \ 'javascript': ['tslint', 'prettier'],
-          \ 'javascript.jsx': ['tslint', 'prettier'],
-          \ 'typescript': ['tslint', 'prettier'],
-          \ 'typescript.tsx': ['tslint', 'prettier'],
-          \ 'typescriptreact': ['tslint', 'prettier'],
-          \ }
-      let g:ale_fixers = {
-          \ 'javascript': ['tslint', 'prettier'],
-          \ 'javascript.jsx': ['tslint', 'prettier'],
-          \ 'typescript': ['tslint', 'prettier'],
-          \ 'typescript.tsx': ['tslint', 'prettier'],
-          \ 'typescriptreact': ['tslint', 'prettier']
-          \ }
-    else
-      let g:ale_linters = {
-         \ 'javascript': ['eslint', 'prettier'],
-         \ 'javascript.jsx': ['eslint', 'prettier'],
-         \ 'typescript': ['eslint', 'prettier'],
-         \ 'typescript.tsx': ['eslint', 'prettier'],
-         \ 'typescriptreact': ['eslint', 'prettier'],
-         \ }
-      let g:ale_fixers = {
-         \ 'javascript': ['prettier', 'eslint'],
-         \ 'javascript.jsx': ['prettier', 'eslint'],
-         \ 'typescript': ['prettier', 'eslint'],
-         \ 'typescript.tsx': ['prettier', 'eslint'],
-         \ 'typescriptreact': ['prettier', 'eslint']
-         \ }
-    endif
-  endfun
-
-  call ChooseAleOptions()
+  let g:ale_linters = {
+     \ 'javascript': ['eslint'],
+     \ 'javascript.jsx': ['eslint'],
+     \ 'javascriptreact': ['eslint'],
+     \ 'typescript': ['eslint'],
+     \ 'typescript.tsx': ['eslint'],
+     \ 'typescriptreact': ['eslint'],
+     \ }
+  let g:ale_fixers = {
+     \ 'javascript': ['eslint'],
+     \ 'javascript.jsx': ['eslint'],
+     \ 'javascriptreact': ['eslint'],
+     \ 'typescript': ['eslint'],
+     \ 'typescript.tsx': ['eslint'],
+     \ 'typescriptreact': ['eslint']
+     \ }
 
   let g:ale_cache_executable_check_failures = 1
   let g:ale_fix_on_save = 1
@@ -88,8 +82,8 @@ Plug 'w0rp/ale'
       \ }
 
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-  let g:prettier#config#semi = 'false'
-  let g:prettier#config#print_width = 80
+  let g:prettier#config#semi = 'true'
+  let g:prettier#config#print_width = 120
   let g:prettier#config#jsx_bracket_same_line = 'false'
   let g:prettier#config#bracket_spacing = 'true'
   let g:prettier#config#single_quote = 'true'
@@ -107,7 +101,8 @@ Plug 'alvan/vim-closetag'
   let g:closetag_regions = {
       \ 'typescript.tsx': 'jsxRegion,tsxRegion',
       \ 'typescriptreact': 'jsxRegion,tsxRegion',
-      \ 'javascript.jsx': 'jsxRegion'
+      \ 'javascript.jsx': 'jsxRegion',
+      \ 'javascriptreact': 'jsxRegion'
       \ }
 
 Plug 'sheerun/vim-polyglot'
