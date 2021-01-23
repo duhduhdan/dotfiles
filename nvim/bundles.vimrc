@@ -15,6 +15,8 @@ Plug 'ghifarit53/tokyonight-vim'
 
 Plug 'romgrk/doom-one.vim'
 
+Plug 'artanikin/vim-synthwave84'
+
 
 "  =========================================
 "     FZF Goodness
@@ -41,7 +43,7 @@ Plug 'mileszs/ack.vim'
 "  =========================================
 "     Denite and complete
 "  =========================================
-Plug 'neoclide/coc.nvim', {'tag': 'v0.0.78', 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'tag': 'v0.0.80', 'branch': 'release'}
 
 Plug 'Shougo/denite.nvim'
 

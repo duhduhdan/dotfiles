@@ -5,7 +5,7 @@ Clone this repo to `$HOME` and make sure the following are all installed and con
 
 ---
 
-### System
+### System (macOS)
 
 * [`homebrew`](https://brew.sh/)
 

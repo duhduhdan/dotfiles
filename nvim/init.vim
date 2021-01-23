@@ -147,9 +147,9 @@ call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'nor
 set termguicolors
 syntax on
 
-let g:tokyonight_style = 'storm'
+colorscheme synthwave84
 
-colorscheme tokyonight
+hi Normal guibg=NONE ctermbg=NONE
 
 " ===============================================================================
 " Lightline Config

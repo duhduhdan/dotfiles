@@ -1,0 +1,35 @@
+background_opacity: 0.9
+
+font:
+  normal:
+    family: Mononoki Nerd Font
+  bold:
+    family: Mononoki Nerd Font
+    style: Bold
+  italic:
+    family: Mononoki Nerd Font
+    style: Italic
+  size: 9
+
+colors:
+  primary:
+    background: "0x27212E"
+    foreground: "0xFFFFFF"
+  normal:
+    black:   "0x222228"
+    white:   "0xEEEEFF"
+    red:     "0x964477"
+    green:   "0x77DDCC"
+    yellow:  "0xFFEE66"
+    blue:    "0x336677"
+    magenta: "0xBB88CC"
+    cyan:    "0x667788"
+  bright:
+    black:   "0x222222"
+    white:   "0xEEEEEE"
+    red:     "0xFFBB55"
+    green:   "0x448877"
+    blue:    "0x44BBCC"
+    magenta: "0xEE66BB"
+    cyan:    "0xBBDDEE"
+    yellow:  "0xFFEE66"
