@@ -26,17 +26,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
   nnoremap <leader>g :GFiles<Cr>
 
-Plug 'mileszs/ack.vim'
-  let g:ackprg = 'rg --vimgrep --type-not sql --smart-case --ignore'
-  let g:ack_autoclose = 1
-  let g:ack_use_cword_for_empty_search = 1
-  let g:ackhighlight = 1
-
-  cnoreabbrev Ack Ack!
-  nnoremap <leader>/ :Ack!<Space>
-  " nnoremap <silent> [q :cprevious<CR>
-  " nnoremap <silent> ]q :cnext<CR>
-
 
 "  =========================================
 "     Denite and complete

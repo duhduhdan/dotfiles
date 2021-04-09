@@ -26,6 +26,7 @@ set tabpagemax=30
 set showcmd           " show current command going on
 
 set showtabline=0
+set backspace=indent,eol,start
 
 " Code folding settings
 set foldmethod=indent
@@ -164,3 +165,7 @@ endif
 " ===============================================================================
 source $HOME/dotfiles/nvim/fzf.vim
 
+" ===============================================================================
+" Coc config
+" ===============================================================================
+source $HOME/dotfiles/nvim/coc.vim
