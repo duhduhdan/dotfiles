@@ -30,4 +30,3 @@ eval "$(starship init zsh)"
 
 [[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1
 fpath+=${ZDOTDIR:-~}/.zsh_functions
-

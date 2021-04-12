@@ -11,14 +11,14 @@ line-size = 16
 
 spacing = 2
 padding-right = 5
-module-margin = 4
+module-margin = 2
 
 font-0 = Mononoki Nerd Font Mono:size=10:antialias=true;0
 font-1 = MaterialIcons:size=12:antialias=true;0
 font-3 = FontAwesome:size=12:antialias=true;0
 
-modules-left = powermenu
-modules-right = volume vpn-status wired-network battery date
+modules-left = date
+modules-right = vpn-status btc-price dodo-price eth-price
 
 [bar/right-top]
 monitor = DP-4
@@ -169,6 +169,8 @@ ramp-coreload-7-font = 2
 ramp-coreload-7-foreground = #964C7B
 
 [module/date]
+format-padding = 5
+
 type = internal/date
 date =  %%{F}%Y-%m-%d%%{F-}  %%{F}%H:%M%%{F-}
 date-alt = %%{F}%A, %d %B %Y  %%{F}%H:%M%%{F#666}:%%{F#ed60ba}%S%%{F-}
@@ -236,3 +238,18 @@ menu-2-1-exec = menu_open-0
 type = custom/script
 exec = ~/.local/bin/polybar-scripts/nordvpn.sh
 interval = 30
+
+[module/eth-price]
+type = custom/script
+exec = ~/.local/bin/node/eth.js ETH USD pair
+interval = 3600
+
+[module/dodo-price]
+type = custom/script
+exec = ~/.local/bin/node/eth.js DODO USD pair
+interval = 3600
+
+[module/btc-price]
+type = custom/script
+exec = ~/.local/bin/node/eth.js BTC USD pair
+interval = 3600

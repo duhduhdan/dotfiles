@@ -27,7 +27,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-laserwave)
+(setq doom-theme 'doom-horizon)
 
 (setq doom-themes-neotree-file-icons t)
 
@@ -48,6 +48,7 @@
 
 (add-hook 'typescript-mode-hook 'prettier-js-mode)
 (add-hook 'typescript-tsx-mode-hook 'prettier-js-mode)
+(add-hook 'js2-mode-hook 'prettier-js-mode)
 
 (set-frame-parameter (selected-frame) 'alpha '(95 . 90))
 (add-to-list 'default-frame-alist '(alpha . (95 . 90)))

@@ -13,6 +13,6 @@ bspc config gapless_monocle         true
 
 bspc rule -a Gimp desktop='^3' state=floating follow=on
 bspc rule -a Godot desktop='^3' state=floating
-bspc rule -a Emacs desktop='^1' state=tile
+bspc rule -a Emacs desktop='^1' state=tiled
 
 $HOME/.config/polybar/launch.sh
