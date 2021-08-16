@@ -2,7 +2,7 @@
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
-(require 'prettier-js)
+;; (require 'prettier-js)
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
@@ -24,10 +24,14 @@
 (setq doom-font (font-spec :family "mononoki Nerd Font Mono" :size 13 :weight 'regular )
       doom-variable-pitch-font (font-spec :family "mononoki Nerd Font Mono" :size 13))
 
+(setq-default indent-tabs-mode nil)
+(setq tab-width 2)
+(setq standard-indent 2)
+
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-horizon)
+(setq doom-theme 'doom-oceanic-next)
 
 (setq doom-themes-neotree-file-icons t)
 
@@ -43,12 +47,14 @@
         "--trailing-comma" "all"
         "--bracket-spacing" "true"
         "--print-width" "80"
-        "--arrow-parens" "always"
+        "--arrow-parens" "avoid"
+        "--single-quote" "true"
 ))
 
-(add-hook 'typescript-mode-hook 'prettier-js-mode)
-(add-hook 'typescript-tsx-mode-hook 'prettier-js-mode)
-(add-hook 'js2-mode-hook 'prettier-js-mode)
+;; This is responsible for executing prettier on save.
+;; (add-hook 'typescript-mode-hook 'prettier-js-mode)
+;; (add-hook 'typescript-tsx-mode-hook 'prettier-js-mode)
+;; (add-hook 'js2-mode-hook 'prettier-js-mode)
 
 (set-frame-parameter (selected-frame) 'alpha '(95 . 90))
 (add-to-list 'default-frame-alist '(alpha . (95 . 90)))
@@ -69,5 +75,5 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-
-;;(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+(after! dtrt-indent
+  (add-to-list 'dtrt-indent-hook-mapping-list '(typescript-mode javascript typescript-indent-level)))

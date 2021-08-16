@@ -95,12 +95,12 @@ filetype plugin on
 
 " QOL upgradez
 inoremap jk <Esc>
-nnoremap <Leader>w :w<CR>
+nnoremap <Leader>fs :w<CR>
 nnoremap <Leader>n :noh<CR>
 nnoremap <Leader>q :q<CR>
 
-nnoremap <Leader>S :vsplit<CR>
-nnoremap <Leader>h :split<CR>
+nnoremap <Leader>wv :vsplit<CR>
+nnoremap <Leader>ws :split<CR>
 
 nnoremap <C-t> :terminal<cr>
 
@@ -129,7 +129,7 @@ nnoremap <leader>L :bp<CR>
 " rebalance splits
 nnoremap <leader>= <c-w>=
 
-if empty(glob('~/.vim/autoload/plug.vim'))
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -147,9 +147,9 @@ call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'nor
 set termguicolors
 syntax on
 
-colorscheme synthwave84
+colorscheme doom-one
 
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
 
 " ===============================================================================
 " Lightline Config

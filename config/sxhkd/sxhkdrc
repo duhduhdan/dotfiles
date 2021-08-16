@@ -139,3 +139,13 @@ super + slash
 # send to next monitor
 super + alt + n
 	bspc node -m next --follow
+
+# volume control
+XF86AudioLowerVolume
+	amixer set Master 5%-
+
+XF86AudioRaiseVolume
+	amixer set Master 5%+
+
+XF86AudioMute
+    amixer set Master toggle

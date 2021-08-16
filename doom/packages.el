@@ -50,4 +50,5 @@
 ;(unpin! t)
 
 (package! prettier-js)
-(package! markdownfmt)
+(package! eslint-fix)
+(package! spacemacs-theme)

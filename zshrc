@@ -8,6 +8,18 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+setopt INTERACTIVE_COMMENTS
+export MAVEN_BIN=/usr/local/apache-maven/bin
+# BEGIN FIN RECOMMENDS (added by fin/wre-setup/setup_initial.sh)
+export REDFIN_MAIN=$HOME/code/main
+eval "$($HOME/code/fin/bin/fin init -)"
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
+export PATH=~/bin:/usr/local/bin:~/code/scripts:${PATH}:${REDFIN_MAIN}/bin
+# export JAVA_HOME=`/usr/libexec/java_home -version 1.8.0`
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+ulimit -n 8000
+# END FIN RECOMMENDS (added by fin/wre-setup/setup_initial.sh)
+
 export EDITOR="nvim"
 export TERMINAL="alacrity"
 export BROWSER="firefox"
@@ -16,6 +28,7 @@ alias c='clear'
 alias la='ls -la'
 alias n='nvim'
 alias d='doom run'
+alias cdm='cd ~/code/main'
 
 export PATH=~/.emacs.d/bin:$PATH
 export PATH="$LIBCLANG_LLVM_CONFIG_EXECUTABLE:$PATH"
