@@ -21,17 +21,32 @@
 ;; font string. You generally only need these two:
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
-(setq doom-font (font-spec :family "mononoki Nerd Font Mono" :size 13 :weight 'regular )
-      doom-variable-pitch-font (font-spec :family "mononoki Nerd Font Mono" :size 13))
+;; (setq doom-font (font-spec :family "mononoki Nerd Font Mono" :size 12 :weight 'regular)
+;;       doom-variable-pitch-font (font-spec :family "mononoki Nerd Font Mono" :size 12 :weight 'regular))
+(setq doom-font (font-spec :family "SFMono Nerd Font" :size 12 :weight 'regular)
+      doom-variable-pitch-font (font-spec :family "SFMono Nerd Font" :size 12 :weight 'regular))
 
-(setq-default indent-tabs-mode nil)
-(setq tab-width 2)
+;; (setq-default indent-tabs-mode nil)
+;; (setq tab-width 2)
 (setq standard-indent 2)
+
+(defun disable-tabs () (setq indent-tabs-mode nil))
+(defun enable-tabs  ()
+  (local-set-key (kbd "TAB") 'tab-to-tab-stop)
+  (setq indent-tabs-mode t)
+  (setq tab-width 2))
+
+(add-hook 'js2-mode 'disable-tabs)
+(add-hook 'css 'disable-tabs)
+
+(setq-default js-indent-level 2)
+(setq-default electric-indent-inhibit t)
+(setq backward-delete-char-untabify-method 'hungry)
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-oceanic-next)
+(setq doom-theme 'base16-synth-midnight-dark)
 
 (setq doom-themes-neotree-file-icons t)
 

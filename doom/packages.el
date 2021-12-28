@@ -52,3 +52,4 @@
 (package! prettier-js)
 (package! eslint-fix)
 (package! spacemacs-theme)
+(package! base16-theme)

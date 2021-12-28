@@ -2,14 +2,14 @@ background_opacity: 0.9
 
 font:
   normal:
-    family: mononoki Nerd Font
+    family: SFMono Nerd Font
   bold:
-    family: mononoki Nerd Font
+    family: SFMono Nerd Font
     style: Bold
   italic:
-    family: mononoki Nerd Font
+    family: SFMono Nerd Font
     style: Italic
-  size: 10
+  size: 12
 
 window:
   decorations: none
