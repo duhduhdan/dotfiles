@@ -1,18 +1,17 @@
-background_opacity: 0.9
-
 font:
   normal:
-    family: mononoki Nerd Font
+    family: mononoki Nerd Font Mono
   bold:
-    family: mononoki Nerd Font
+    family: mononoki Nerd Font Mono
     style: Bold
   italic:
-    family: mononoki Nerd Font
+    family: mononoki Nerd Font Mono
     style: Italic
-  size: 10
+  size: 13
 
 window:
   decorations: none
+  opacity: 0.9
 
 colors:
   # theme: horizon

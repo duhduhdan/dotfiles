@@ -11,8 +11,8 @@ set history=500
 " Tab control
 set softtabstop=2     " insert mode tab and backspace uses 2 spaces
 set shiftwidth=2      " normal mode indentation commands uses 2 spaces
-set expandtab         " expand tabs to spaces
 set tabstop=2         " actual tab uses 8 spaces
+set expandtab         " expand tabs to spaces
 
 set mouse=a           " click tabs, drag tabs, and drag split bars
 set clipboard=unnamed " yank and paste with the system clipboard
@@ -35,7 +35,7 @@ set diffopt=filler,context:9999 "nofold in diff mode
 set inccommand=split
 
 set timeoutlen=500
-set ttimeoutlen=100
+set ttimeoutlen=500
 
 set wildmenu          " enhanced command line completion
 set wildmode=list:longest,full
@@ -68,6 +68,7 @@ au BufRead,BufNewFile *.tag set filetype=html
 au BufRead,BufNewFile *.bash_profile set filetype=sh
 au BufRead,BufNewFile *.bashrc set filetype=sh
 au BufRead,BufNewFile Fastfile set filetype=ruby
+au BufRead,BufNewFile *.tsx set filetype=typescriptreact
 
 au FileType json syntax match Comment +\/\/.\+$+
 
@@ -93,14 +94,14 @@ set rnu
 
 filetype plugin on
 
-" QOL upgradez
 inoremap jk <Esc>
-nnoremap <Leader>fs :w<CR>
-nnoremap <Leader>n :noh<CR>
-nnoremap <Leader>q :q<CR>
+nnoremap <leader>fs :w<cr>
+nnoremap <leader>qq :q<cr>
+nnoremap <leader>wc :close<cr>
+nnoremap <esc> :noh<cr>
 
-nnoremap <Leader>wv :vsplit<CR>
-nnoremap <Leader>ws :split<CR>
+nnoremap <leader>wv :vsplit<cr>
+nnoremap <leader>ws :split<cr>
 
 nnoremap <C-t> :terminal<cr>
 
@@ -110,24 +111,21 @@ nnoremap <leader>. <C-W>>
 nnoremap <leader>< <C-W>+
 nnoremap <leader>> <C-W>-
 
-" hjkl keys navigate buffer splits
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <leader>wl <C-w>l
+nnoremap <leader>wh <C-w>h
+nnoremap <leader>wk <C-w>k
+nnoremap <leader>wj <C-w>j
 
 nnoremap <leader>r :edit<cr>
 
-nnoremap <C-t> :terminal<Cr>
 tnoremap <leader>k <C-\><C-n>
 
-" buffer nav shortcuts
-nnoremap <leader>b :ls<CR>
-nnoremap <leader>H :bn<CR>
-nnoremap <leader>L :bp<CR>
+nnoremap <leader>b :ls<cr>
+nnoremap ]b :bn<CR>
+nnoremap [b :bp<CR>
+nnoremap <leader>bk :bd<cr>
 
-" rebalance splits
-nnoremap <leader>= <c-w>=
+nnoremap <leader>w= <c-w>=
 
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -147,9 +145,10 @@ call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'nor
 set termguicolors
 syntax on
 
-colorscheme doom-one
+let g:tokyonight_style = "storm"
+let g:tokyonight_enable_italic = 1
 
-" hi Normal guibg=NONE ctermbg=NONE
+colorscheme tokyonight
 
 " ===============================================================================
 " Lightline Config
@@ -162,5 +161,31 @@ endif
 " ===============================================================================
 " FZF Config
 " ===============================================================================
-source $HOME/dotfiles/nvim/fzf.vim
+" source $HOME/dotfiles/nvim/fzf.vim
 
+" ===============================================================================
+" Coc config
+" ===============================================================================
+source $HOME/dotfiles/nvim/coc.vim
+
+
+" ===============================================================================
+" Temp lua conf until rewrite everything in lua
+" ===============================================================================
+
+lua << EOF
+local actions = require("telescope.actions")
+
+require("telescope").setup{
+  defaults = {
+    file_ignore_patterns = { "node_modules", "__snapshots__" },
+    mappings = {
+      i = {
+        ["<esc>"] = actions.close
+      },
+    },
+  }
+}
+
+require("telescope").load_extension("coc")
+EOF

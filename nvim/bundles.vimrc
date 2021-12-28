@@ -7,13 +7,7 @@ Plug 'tpope/vim-repeat'
 "  =========================================
 "     Colorschemes
 "  =========================================
-Plug 'ryuta69/elly.vim'
-
-Plug 'embark-theme/vim', { 'as': 'embark' }
-
 Plug 'ghifarit53/tokyonight-vim'
-
-Plug 'romgrk/doom-one.vim'
 
 Plug 'artanikin/vim-synthwave84'
 
@@ -23,10 +17,10 @@ Plug 'artanikin/vim-synthwave84'
 "  =========================================
 " Plug '/usr/local/opt/fzf'
 
-" Plug 'junegunn/fzf'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-  nnoremap <leader>g :GFiles<Cr>
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
+"   nnoremap <leader>g :GFiles<Cr>
+"   nnoremap <leader>ss :Files<cr>
 
 Plug 'mileszs/ack.vim'
   let g:ackprg = 'rg --vimgrep --type-not sql --smart-case --ignore'
@@ -43,7 +37,12 @@ Plug 'mileszs/ack.vim'
 "  =========================================
 "     Denite and complete
 "  =========================================
-Plug 'neoclide/coc.nvim', {'tag': 'v0.0.80', 'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'tag': 'v0.0.80', 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'fannheyward/telescope-coc.nvim'
+  nnoremap <leader>dd <cmd>Telescope coc document_symbols<cr>
+  nnoremap <leader>ww <cmd>Telescope coc workspace_symbols<cr>
 
 Plug 'Shougo/denite.nvim'
 
@@ -85,10 +84,10 @@ Plug 'w0rp/ale'
 
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   let g:prettier#config#semi = 'true'
-  let g:prettier#config#print_width = 120
+  let g:prettier#config#print_width = 80
   let g:prettier#config#jsx_bracket_same_line = 'false'
   let g:prettier#config#bracket_spacing = 'true'
-  let g:prettier#config#single_quote = 'true'
+  let g:prettier#config#single_quote = 'false'
 
   let g:prettier#exec_cmd_async = 1
 
@@ -109,31 +108,30 @@ Plug 'alvan/vim-closetag'
 
 Plug 'sheerun/vim-polyglot'
 
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+  nnoremap <leader>op <cmd>CHADopen<cr>
+
 
 "  =========================================
 "     Interface improvement
 "  =========================================
-Plug 'tpope/vim-vinegar'
-
 Plug 'itchyny/lightline.vim'
 
 Plug 'maximbaz/lightline-ale'
 
-Plug 'vimwiki/vimwiki'
-
 Plug 'jiangmiao/auto-pairs'
 
-Plug 'mgee/lightline-bufferline'
-  nmap <Leader>1 <Plug>lightline#bufferline#go(1)
-  nmap <Leader>2 <Plug>lightline#bufferline#go(2)
-  nmap <Leader>3 <Plug>lightline#bufferline#go(3)
-  nmap <Leader>4 <Plug>lightline#bufferline#go(4)
-  nmap <Leader>5 <Plug>lightline#bufferline#go(5)
-  nmap <Leader>6 <Plug>lightline#bufferline#go(6)
-  nmap <Leader>7 <Plug>lightline#bufferline#go(7)
-  nmap <Leader>8 <Plug>lightline#bufferline#go(8)
-  nmap <Leader>9 <Plug>lightline#bufferline#go(9)
-  nmap <Leader>0 <Plug>lightline#bufferline#go(10)
-
 Plug 'arithran/vim-delete-hidden-buffers'
-  nnoremap <leader>v :DeleteHiddenBuffers<CR>
+  nnoremap <leader>bv :DeleteHiddenBuffers<CR>
+
+Plug 'sunjon/shade.nvim'
+
+Plug 'nvim-lua/plenary.nvim'
+
+Plug 'nvim-telescope/telescope.nvim'
+  nnoremap <leader>ff <cmd>Telescope find_files<cr>
+  nnoremap <leader>fg <cmd>Telescope git_files<cr>
+  nnoremap <leader>fb <cmd>Telescope buffers<cr>
+  nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+  nnoremap <leader>ss <cmd>Telescope live_grep<cr>
+  nnoremap <leader>x <cmd>Telescope commands<cr>
