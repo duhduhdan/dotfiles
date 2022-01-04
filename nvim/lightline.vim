@@ -41,7 +41,7 @@ let g:lightline.component_function = {
       \ 'cocstatus': 'coc#status'
       \ }
 
-let g:lightline.colorscheme = 'tokyonight'
+let g:lightline.colorscheme = 'everforest'
 
 let g:lightline#ale#indicator_checking = "\uf110"
 let g:lightline#ale#indicator_warnings = "\uf071"

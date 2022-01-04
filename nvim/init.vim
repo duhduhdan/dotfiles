@@ -145,10 +145,10 @@ call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'nor
 set termguicolors
 syntax on
 
-let g:tokyonight_style = "storm"
-let g:tokyonight_enable_italic = 1
+" let g:tokyonight_style = "storm"
+" let g:tokyonight_enable_italic = 1
 
-colorscheme tokyonight
+colorscheme everforest
 
 " ===============================================================================
 " Lightline Config

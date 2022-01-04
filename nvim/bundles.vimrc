@@ -11,6 +11,8 @@ Plug 'ghifarit53/tokyonight-vim'
 
 Plug 'artanikin/vim-synthwave84'
 
+Plug 'sainnhe/everforest'
+
 
 "  =========================================
 "     FZF Goodness
@@ -135,3 +137,5 @@ Plug 'nvim-telescope/telescope.nvim'
   nnoremap <leader>fh <cmd>Telescope help_tags<cr>
   nnoremap <leader>ss <cmd>Telescope live_grep<cr>
   nnoremap <leader>x <cmd>Telescope commands<cr>
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
