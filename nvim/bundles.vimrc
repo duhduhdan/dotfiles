@@ -15,15 +15,8 @@ Plug 'sainnhe/everforest'
 
 
 "  =========================================
-"     FZF Goodness
+"     Searching
 "  =========================================
-" Plug '/usr/local/opt/fzf'
-
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
-"   nnoremap <leader>g :GFiles<Cr>
-"   nnoremap <leader>ss :Files<cr>
-
 Plug 'mileszs/ack.vim'
   let g:ackprg = 'rg --vimgrep --type-not sql --smart-case --ignore'
   let g:ack_autoclose = 1
@@ -32,14 +25,11 @@ Plug 'mileszs/ack.vim'
 
   cnoreabbrev Ack Ack!
   nnoremap <leader>/ :Ack!<Space>
-  " nnoremap <silent> [q :cprevious<CR>
-  " nnoremap <silent> ]q :cnext<CR>
 
 
 "  =========================================
 "     Denite and complete
 "  =========================================
-" Plug 'neoclide/coc.nvim', {'tag': 'v0.0.80', 'branch': 'release'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'fannheyward/telescope-coc.nvim'
@@ -70,12 +60,12 @@ Plug 'w0rp/ale'
      \ 'typescriptreact': ['eslint'],
      \ }
   let g:ale_fixers = {
-     \ 'javascript': ['eslint'],
-     \ 'javascript.jsx': ['eslint'],
-     \ 'javascriptreact': ['eslint'],
-     \ 'typescript': ['eslint'],
-     \ 'typescript.tsx': ['eslint'],
-     \ 'typescriptreact': ['eslint']
+     \ 'javascript': ['eslint', 'prettier'],
+     \ 'javascript.jsx': ['eslint', 'prettier'],
+     \ 'javascriptreact': ['eslint', 'prettier'],
+     \ 'typescript': ['eslint', 'prettier'],
+     \ 'typescript.tsx': ['eslint', 'prettier'],
+     \ 'typescriptreact': ['eslint', 'prettier']
      \ }
 
   let g:ale_cache_executable_check_failures = 1
@@ -83,17 +73,6 @@ Plug 'w0rp/ale'
   let g:ale_pattern_options = {
       \ '.*\.d.ts$': {'ale_enabled': 0}
       \ }
-
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-  let g:prettier#config#semi = 'true'
-  let g:prettier#config#print_width = 80
-  let g:prettier#config#jsx_bracket_same_line = 'false'
-  let g:prettier#config#bracket_spacing = 'true'
-  let g:prettier#config#single_quote = 'false'
-
-  let g:prettier#exec_cmd_async = 1
-
-  " let g:prettier#config#parser = 'typescript'
 
 Plug 'tpope/vim-fugitive'
 
