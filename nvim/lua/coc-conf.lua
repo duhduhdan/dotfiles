@@ -1,6 +1,7 @@
 local cmd = require("helpers").cmd
+local map = require("helpers").map
 
-cmd([[
+--[[cmd([[
   inoremap <silent><expr> <TAB>
         \ pumvisible() ? "\<C-n>" :
         \ <SID>check_back_space() ? "\<TAB>" :
@@ -60,4 +61,5 @@ cmd([[
   nnoremap <silent> <space>s  :<C-u>Denite coc-service<cr>
   " Show links of current buffer
   nnoremap <silent> <space>l  :<C-u>Denite coc-link<cr>
-]])
+\]\])
+]]

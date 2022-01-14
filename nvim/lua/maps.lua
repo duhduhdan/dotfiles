@@ -1,6 +1,5 @@
 local map = require("helpers").map
 
--- general qol
 map("i", "jk", "<esc>")
 map("n", "<leader>fs", ":w<cr>")
 map("n", "<leader>qq", ":q<cr>")
@@ -21,7 +20,7 @@ map("t", "<leader>k", "<C-\\><C-n")
 
 map("n", "<leader>b", "<cmd>ls<cr>")
 
-map("n",  "]b", "<cmd>bn<cr>")
+map("n", "]b", "<cmd>bn<cr>")
 map("n", "[b", "<cmd>bp<cr>")
 map("n", "<leader>bk", "<cmd>bd<cr>")
 

@@ -89,7 +89,7 @@ Plug 'alvan/vim-closetag'
 
 Plug 'sheerun/vim-polyglot'
 
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+Plug 'ms-jpq/chadtree', {'branch': 'dev', 'do': 'python3 -m chadtree deps'}
   nnoremap <leader>op <cmd>CHADopen<cr>
 
 
