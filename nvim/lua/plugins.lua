@@ -1,14 +1,11 @@
-vim.cmd [[packadd packer.nvim]]
+-- vim.cmd [[packadd packer.nvim]]
 
 return require"packer".startup(function()
     use "savq/paq-nvim"
+    use "tpope/vim-repeat"
     use "ghifarit53/tokyonight-vim"
     use "arcticicestudio/nord-vim"
     use "mileszs/ack.vim"
-    use {
-        "neoclide/coc.nvim",
-        branch = "release"
-    }
     use "Shougo/denite.nvim"
     use "chemzqm/denite-git"
     use "neoclide/coc-denite"
@@ -23,11 +20,11 @@ return require"packer".startup(function()
     use "airblade/vim-gitgutter"
     use "alvan/vim-closetag"
     use "sheerun/vim-polyglot"
-    -- use {
-    --     "ms-jpq/chadtree",
-    --     branch = "chad",
-    --     run = "python3 -m venv chadtree deps",
-    -- }
+    use {
+        "ms-jpq/chadtree",
+        branch = "chad",
+        run = "python3 -m chadtree deps",
+    }
     use {
         "nvim-lualine/lualine.nvim",
         requires = {
@@ -40,6 +37,16 @@ return require"packer".startup(function()
     use "nvim-lua/plenary.nvim"
     use "nvim-telescope/telescope.nvim"
     use "fannheyward/telescope-coc.nvim"
-    -- use "nvim-treesitter/nvim-treesitter"
-
+    use "nvim-treesitter/nvim-treesitter"
+    use "neovim/nvim-lspconfig"
+    use {
+    'hrsh7th/nvim-cmp',
+        requires = {
+          'L3MON4D3/LuaSnip',
+          'hrsh7th/cmp-nvim-lsp',
+          'hrsh7th/cmp-path',
+          'hrsh7th/cmp-buffer',
+          'saadparwaiz1/cmp_luasnip',
+        }
+  }
 end)

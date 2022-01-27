@@ -14,7 +14,7 @@ map("n", "<C-t>", "<cmd>terminal<cr>")
 map("n", "<leader>wl", "<C-w>l")
 map("n", "<leader>wh", "<C-w>h")
 map("n", "<leader>wk", "<C-w>k")
-map("n", "<leader>wj", "<C-w>l")
+map("n", "<leader>wj", "<C-w>j")
 
 map("t", "<leader>k", "<C-\\><C-n")
 
