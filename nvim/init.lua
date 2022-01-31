@@ -9,5 +9,6 @@ require "prettier-conf"
 require "closetag-conf"
 require "lsp-conf"
 require "cmp-conf"
+require "chadtree-conf"
 
 vim.cmd [[filetype plugin on]]

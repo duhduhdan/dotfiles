@@ -7,35 +7,63 @@ font:
   italic:
     family: mononoki Nerd Font Mono
     style: Italic
-  size: 11
+  size: 13
 
 window:
   decorations: none
-  opacity: 0.9
+  # opacity: 0.9
 
 colors:
-  # theme: horizon
-   primary:
-     background: "0x232530"
-     foreground: "0xC7C9CB"
-   normal:
-     black:   "0x16161C"
-     white:   "0xFDF0ED"
-     red:     "0xE95678"
-     green:   "0x09F7A0"
-     yellow:  "0xFAB795"
-     blue:    "0x25B2BC"
-     magenta: "0x6C6F93"
-     cyan:    "0x27D797"
-   bright:
-     black:   "0x1A1C23"
-     white:   "0xFDF0ED"
-     red:     "0xF09383"
-     green:   "0x21BFC2"
-     blue:    "0x21BFC2"
-     magenta: "0xB877DB"
-     cyan:    "0x59E3E3"
-     yellow:  "0xFAB795"
+  # Default colors
+  primary:
+    background: '0x1a1b26'
+    foreground: '0xa9b1d6'
+
+  # Normal colors
+  normal:
+    black:   '0x32344a'
+    red:     '0xf7768e'
+    green:   '0x9ece6a'
+    yellow:  '0xe0af68'
+    blue:    '0x7aa2f7'
+    magenta: '0xad8ee6'
+    cyan:    '0x449dab'
+    white:   '0x787c99'
+
+  # Bright colors
+  bright:
+    black:   '0x444b6a'
+    red:     '0xff7a93'
+    green:   '0xb9f27c'
+    yellow:  '0xff9e64'
+    blue:    '0x7da6ff'
+    magenta: '0xbb9af7'
+    cyan:    '0x0db9d7'
+    white:   '0xacb0d0'
+
+# colors:
+#   # theme: horizon
+#    primary:
+#      background: "0x232530"
+#      foreground: "0xC7C9CB"
+#    normal:
+#      black:   "0x16161C"
+#      white:   "0xFDF0ED"
+#      red:     "0xE95678"
+#      green:   "0x09F7A0"
+#      yellow:  "0xFAB795"
+#      blue:    "0x25B2BC"
+#      magenta: "0x6C6F93"
+#      cyan:    "0x27D797"
+#    bright:
+#      black:   "0x1A1C23"
+#      white:   "0xFDF0ED"
+#      red:     "0xF09383"
+#      green:   "0x21BFC2"
+#      blue:    "0x21BFC2"
+#      magenta: "0xB877DB"
+#      cyan:    "0x59E3E3"
+#      yellow:  "0xFAB795"
 
   # theme: laserwave
   # primary:

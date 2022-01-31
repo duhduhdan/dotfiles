@@ -59,4 +59,4 @@ opt.termguicolors = true
 
 cmd [[syntax on]]
 
-cmd [[colorscheme nord]]
+cmd [[colorscheme tokyonight]]
