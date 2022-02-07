@@ -10,12 +10,12 @@ g.ale_linters = {
 }
 
 g.ale_fixers = {
-    javascript = {"prettier"},
-    ["javascript.jsx"] = {"prettier"},
-    javascriptreact = {"prettier"},
-    typescript = {"prettier"},
-    ["typescript.jsx"] = {"prettier"},
-    typescriptreact = {"prettier"}
+    javascript = {"prettier", "eslint"},
+    ["javascript.jsx"] = {"prettier", "eslint"},
+    javascriptreact = {"prettier", "eslint"},
+    typescript = {"prettier", "eslint"},
+    ["typescript.jsx"] = {"prettier", "eslint"},
+    typescriptreact = {"prettier", "eslint"}
 }
 
 g.ale_cache_executable_check_failures = 1

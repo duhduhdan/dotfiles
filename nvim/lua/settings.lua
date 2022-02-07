@@ -57,6 +57,8 @@ opt.rnu = true
 
 opt.termguicolors = true
 
+g.ayucolor="mirage"
+
 cmd [[syntax on]]
 
-cmd [[colorscheme tokyonight]]
+cmd [[colorscheme nebulous]]

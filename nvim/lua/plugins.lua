@@ -1,10 +1,14 @@
--- vim.cmd [[packadd packer.nvim]]
+vim.cmd [[packadd packer.nvim]]
 
 return require"packer".startup(function()
     use "savq/paq-nvim"
     use "tpope/vim-repeat"
-    use "ghifarit53/tokyonight-vim"
-    use "arcticicestudio/nord-vim"
+    use "Shatur/neovim-ayu"
+    use "shaunsingh/nord.nvim"
+    use "bluz71/vim-nightfly-guicolors"
+    use "bkegley/gloombuddy"
+    use "Yagua/nebulous.nvim"
+    use "folke/tokyonight.nvim"
     use "mileszs/ack.vim"
     use "Shougo/denite.nvim"
     use "chemzqm/denite-git"
@@ -40,13 +44,13 @@ return require"packer".startup(function()
     use "nvim-treesitter/nvim-treesitter"
     use "neovim/nvim-lspconfig"
     use {
-    'hrsh7th/nvim-cmp',
+    "hrsh7th/nvim-cmp",
         requires = {
-          'L3MON4D3/LuaSnip',
-          'hrsh7th/cmp-nvim-lsp',
-          'hrsh7th/cmp-path',
-          'hrsh7th/cmp-buffer',
-          'saadparwaiz1/cmp_luasnip',
+          "L3MON4D3/LuaSnip",
+          "hrsh7th/cmp-nvim-lsp",
+          "hrsh7th/cmp-path",
+          "hrsh7th/cmp-buffer",
+          "saadparwaiz1/cmp_luasnip",
         }
   }
 end)

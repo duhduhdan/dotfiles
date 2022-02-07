@@ -1,5 +1,6 @@
 require "settings"
 require "plugins"
+require "nebulous-conf"
 require "maps"
 require "lualine-conf"
 require "telescope-conf"
