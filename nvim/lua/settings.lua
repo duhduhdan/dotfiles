@@ -55,10 +55,9 @@ opt.cmdheight = 2
 
 opt.rnu = true
 
+opt.background = "dark"
 opt.termguicolors = true
-
-g.ayucolor="mirage"
 
 cmd [[syntax on]]
 
-cmd [[colorscheme nebulous]]
+cmd [[colorscheme base16-atelier-cave]]

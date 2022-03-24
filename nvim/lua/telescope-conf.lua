@@ -11,4 +11,4 @@ require("telescope").setup{
   }
 }
 
-require("telescope").load_extension("coc")
+-- require("telescope").load_extension("coc")

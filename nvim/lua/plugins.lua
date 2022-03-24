@@ -1,50 +1,38 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require"packer".startup(function()
-    use "savq/paq-nvim"
+    use "wbthomason/packer.nvim"
     use "tpope/vim-repeat"
     use "Shatur/neovim-ayu"
-    use "shaunsingh/nord.nvim"
-    use "bluz71/vim-nightfly-guicolors"
-    use "bkegley/gloombuddy"
-    use "Yagua/nebulous.nvim"
     use "folke/tokyonight.nvim"
-    use "mileszs/ack.vim"
+    use "RRethy/nvim-base16"
     use "Shougo/denite.nvim"
     use "chemzqm/denite-git"
-    use "neoclide/coc-denite"
     use "tpope/vim-commentary"
     use "tpope/vim-surround"
     use "w0rp/ale"
     use {
         "prettier/vim-prettier",
-        run = "yarn install"
+        run = "yarn install",
     }
     use "tpope/vim-fugitive"
     use "airblade/vim-gitgutter"
     use "alvan/vim-closetag"
-    use "sheerun/vim-polyglot"
-    use {
-        "ms-jpq/chadtree",
-        branch = "chad",
-        run = "python3 -m chadtree deps",
-    }
     use {
         "nvim-lualine/lualine.nvim",
         requires = {
             "kyazdani42/nvim-web-devicons",
-            opt = true
+            opt = true,
         }
     }
     use "jiangmiao/auto-pairs"
     use "arithran/vim-delete-hidden-buffers"
     use "nvim-lua/plenary.nvim"
     use "nvim-telescope/telescope.nvim"
-    use "fannheyward/telescope-coc.nvim"
     use "nvim-treesitter/nvim-treesitter"
     use "neovim/nvim-lspconfig"
     use {
-    "hrsh7th/nvim-cmp",
+        "hrsh7th/nvim-cmp",
         requires = {
           "L3MON4D3/LuaSnip",
           "hrsh7th/cmp-nvim-lsp",
@@ -52,5 +40,12 @@ return require"packer".startup(function()
           "hrsh7th/cmp-buffer",
           "saadparwaiz1/cmp_luasnip",
         }
-  }
+    }
+    use {
+        "kyazdani42/nvim-tree.lua",
+        requires = {
+          "kyazdani42/nvim-web-devicons",
+        },
+        config = function() require"nvim-tree".setup {} end
+    }
 end)

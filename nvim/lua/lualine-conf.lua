@@ -1,7 +1,7 @@
 require("lualine").setup {
     options = {
         icons_enabled = true,
-        theme = "nebulous",
+        theme = "auto",
         component_separators = {
             left = "",
             right = ""
