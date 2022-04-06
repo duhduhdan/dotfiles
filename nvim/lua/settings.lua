@@ -58,6 +58,8 @@ opt.rnu = true
 opt.background = "dark"
 opt.termguicolors = true
 
+g.noswap = true
+
 cmd [[syntax on]]
 
-cmd [[colorscheme base16-atelier-cave]]
+cmd [[colorscheme base16-gruvbox-dark-pale]]

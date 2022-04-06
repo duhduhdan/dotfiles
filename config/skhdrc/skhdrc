@@ -1,0 +1,78 @@
+cmd - return : /Applications/Alacritty.app
+
+# focus
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+# toggle floating
+alt - f : yabai -m window --toggle float
+
+# swap
+shift + alt - h : yabai -m window --swap west
+shift + alt - j : yabai -m window --swap south
+shift + alt - k : yabai -m window --swap north
+shift + alt - l : yabai -m window --swap east
+
+# move
+shift + cmd - h : yabai -m window --warp west
+shift + cmd - j : yabai -m window --warp south
+shift + cmd - k : yabai -m window --warp north
+shift + cmd - l : yabai -m window --warp east
+
+# balance windows
+shift + alt - 0 : yabai -m space --balance
+
+# floating window fill screen
+shift + alt - up : yabai -m window --grid 1:1:0:0:1:1
+
+# floating window left-half of screen
+shift + alt - left : yabai -m window --grid 1:2:0:0:1:1
+
+# floating window right-half of screen
+shift + alt - right : yabai -m window --grid 1:2:1:0:1:1
+
+# create desktop, move window, follow focus
+shift + cmd - n : yabai -m space --create && \
+                  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+                  yabai -m window --space "${index}" && \
+                  yabai -m space --focus "${index}"
+
+# create desktop, follow focus
+shift + alt - n : yabai -m space --create && \
+                  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+                  yabai -m space --focus "${index}"
+
+# kill desktop
+cmd + alt - w : yabai -m space --destory
+
+# fast focus desktop
+cmd + alt - n : yabai -m space --focus next
+cmd + alt - p : yabai -m space --focus prev
+cmd + alt - 1 : yabai -m space --focus 1
+cmd + alt - 2 : yabai -m space --focus 2
+cmd + alt - 3 : yabai -m space --focus 3
+cmd + alt - 4 : yabai -m space --focus 4
+cmd + alt - 5 : yabai -m space --focus 5
+cmd + alt - 6 : yabai -m space --focus 6
+cmd + alt - 7 : yabai -m space --focus 7
+cmd + alt - 8 : yabai -m space --focus 8
+cmd + alt - 9 : yabai -m space --focus 9
+cmd + alt - 0 : yabai -m space --focus 10
+
+# send window to desktop and follow
+ctrl + cmd - n : yabai -m window --space next; yabai -m space --focus next
+ctrl + cmd - p : yabai -m window --space prev; yabai -m space --focus prev
+
+# increase window size
+shift + alt - a : yabai -m window --resize left:-20:0
+shift + alt - s : yabai -m window --resize left:0:20
+shift + alt - w : yabai -m window --resize left:0:-20
+shift + alt - d : yabai -m window --resize left:20:0
+
+# decrease window size
+shift + cmd - a : yabai -m window --resize left:20:0
+shift + cmd - s : yabai -m window --resize left:0:-20
+shift + cmd - w : yabai -m window --resize left:0:20
+shift + cmd - d : yabai -m window --resize left:-20:0

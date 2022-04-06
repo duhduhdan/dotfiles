@@ -34,3 +34,4 @@ map("n", "<leader>ss", "<cmd>Telescope live_grep<cr>")
 map("n", "<leader>x", "<cmd>Telescope commands<cr>")
 
 map("n", "<c-n>", "<cmd>NvimTreeToggle<cr>")
+map("n", "<c-N>", "<cmd>NvimTreeFindFileToggle<cr>")

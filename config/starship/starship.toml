@@ -1,0 +1,4 @@
+format = """
+[┌───────────────────>](bold green)
+[│](bold green)$directory$rust$package$git_branch$nodejs
+[└─>](bold green) """
