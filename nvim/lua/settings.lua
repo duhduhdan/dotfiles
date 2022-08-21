@@ -58,8 +58,9 @@ opt.rnu = true
 opt.background = "dark"
 opt.termguicolors = true
 
-g.noswap = true
+g.swapfile = false
+g.noswapfile = true
 
 cmd [[syntax on]]
 
-cmd [[colorscheme base16-gruvbox-dark-pale]]
+cmd [[colorscheme terafox]]

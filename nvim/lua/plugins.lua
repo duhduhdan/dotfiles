@@ -6,6 +6,7 @@ return require"packer".startup(function()
     use "Shatur/neovim-ayu"
     use "folke/tokyonight.nvim"
     use "RRethy/nvim-base16"
+    use "edeneast/nightfox.nvim"
     use "Shougo/denite.nvim"
     use "chemzqm/denite-git"
     use "tpope/vim-commentary"
@@ -26,10 +27,11 @@ return require"packer".startup(function()
         }
     }
     use "jiangmiao/auto-pairs"
+    use "windwp/nvim-ts-autotag"
     use "arithran/vim-delete-hidden-buffers"
     use "nvim-lua/plenary.nvim"
     use "nvim-telescope/telescope.nvim"
-    use "nvim-treesitter/nvim-treesitter"
+    use "easymotion/vim-easymotion"
     use "neovim/nvim-lspconfig"
     use {
         "hrsh7th/nvim-cmp",
@@ -47,5 +49,9 @@ return require"packer".startup(function()
           "kyazdani42/nvim-web-devicons",
         },
         config = function() require"nvim-tree".setup {} end
+    }
+    use {
+      'nvim-treesitter/nvim-treesitter',
+      run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     }
 end)

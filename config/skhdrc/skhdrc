@@ -24,15 +24,6 @@ shift + cmd - l : yabai -m window --warp east
 # balance windows
 shift + alt - 0 : yabai -m space --balance
 
-# floating window fill screen
-shift + alt - up : yabai -m window --grid 1:1:0:0:1:1
-
-# floating window left-half of screen
-shift + alt - left : yabai -m window --grid 1:2:0:0:1:1
-
-# floating window right-half of screen
-shift + alt - right : yabai -m window --grid 1:2:1:0:1:1
-
 # create desktop, move window, follow focus
 shift + cmd - n : yabai -m space --create && \
                   index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \

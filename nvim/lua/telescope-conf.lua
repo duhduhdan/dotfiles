@@ -8,7 +8,7 @@ require("telescope").setup{
         ["<esc>"] = actions.close
       },
     },
-  }
+  },
 }
 
 -- require("telescope").load_extension("coc")

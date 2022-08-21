@@ -16,6 +16,8 @@ map("n", "<leader>wh", "<C-w>h")
 map("n", "<leader>wk", "<C-w>k")
 map("n", "<leader>wj", "<C-w>j")
 
+map("n", "<leader>d", "d0kJ")
+
 map("t", "<leader>k", "<C-\\><C-n")
 
 map("n", "<leader>b", "<cmd>ls<cr>")
@@ -30,6 +32,8 @@ map("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
 map("n", "<leader>fg", "<cmd>Telescope git_files<cr>")
 map("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
 map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
+map("n", "<leader>bf", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
+map("n", "<leader>bt", "<cmd>Telescope current_buffer_tags<cr>")
 map("n", "<leader>ss", "<cmd>Telescope live_grep<cr>")
 map("n", "<leader>x", "<cmd>Telescope commands<cr>")
 

@@ -13,54 +13,160 @@ env:
   term: xterm-256color
 
 window:
-  padding:
-    x: 8
-    y: 8
   decorations: none
-  # opacity: 0.9
+  opacity: 0.9
 
-# Base16 Gruvbox dark, pale 256 - alacritty color config
-# Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
+
+# Nightfox Alacritty Colors
+# Style: terafox
+# Upstream: https://github.com/edeneast/nightfox.nvim/raw/main/extra/terafox/nightfox_alacritty.yml
 colors:
   # Default colors
   primary:
-    background: '0x262626'
-    foreground: '0xdab997'
-
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '0x262626'
-    cursor: '0xdab997'
-
+    background: '0x152528'
+    foreground: '0xe6eaea'
   # Normal colors
   normal:
-    black:   '0x262626'
-    red:     '0xd75f5f'
-    green:   '0xafaf00'
-    yellow:  '0xffaf00'
-    blue:    '0x83adad'
-    magenta: '0xd485ad'
-    cyan:    '0x85ad85'
-    white:   '0xdab997'
-
+    black:   '0x2f3239'
+    red:     '0xe85c51'
+    green:   '0x7aa4a1'
+    yellow:  '0xfda47f'
+    blue:    '0x5a93aa'
+    magenta: '0xad5c7c'
+    cyan:    '0xa1cdd8'
+    white:   '0xebebeb'
   # Bright colors
   bright:
-    black:   '0x8a8a8a'
-    red:     '0xd75f5f'
-    green:   '0xafaf00'
-    yellow:  '0xffaf00'
-    blue:    '0x83adad'
-    magenta: '0xd485ad'
-    cyan:    '0x85ad85'
-    white:   '0xebdbb2'
-
+    black:   '0x4e5157'
+    red:     '0xeb746b'
+    green:   '0x8eb2af'
+    yellow:  '0xfdb292'
+    blue:    '0x73a3b7'
+    magenta: '0xb97490'
+    cyan:    '0xafd4de'
+    white:   '0xeeeeee'
   indexed_colors:
-    - { index: 16, color: '0xff8700' }
-    - { index: 17, color: '0xd65d0e' }
-    - { index: 18, color: '0x3a3a3a' }
-    - { index: 19, color: '0x4e4e4e' }
-    - { index: 20, color: '0x949494' }
-    - { index: 21, color: '0xd5c4a1' }
+    - { index: 16, color: '0xff8349' }
+    - { index: 17, color: '0xcb7985' }
+
+# # TokyoNight Alacritty Colors
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x24283b'
+#     foreground: '0xc0caf5'
+
+#   # Normal colors
+#   normal:
+#     black:   '0x1D202F'
+#     red:     '0xf7768e'
+#     green:   '0x9ece6a'
+#     yellow:  '0xe0af68'
+#     blue:    '0x7aa2f7'
+#     magenta: '0xbb9af7'
+#     cyan:    '0x7dcfff'
+#     white:   '0xa9b1d6'
+
+#   # Bright colors
+#   bright:
+#     black:   '0x414868'
+#     red:     '0xf7768e'
+#     green:   '0x9ece6a'
+#     yellow:  '0xe0af68'
+#     blue:    '0x7aa2f7'
+#     magenta: '0xbb9af7'
+#     cyan:    '0x7dcfff'
+#     white:   '0xc0caf5'
+
+#   indexed_colors:
+#     - { index: 16, color: '0xff9e64' }
+#     - { index: 17, color: '0xdb4b4b' }
+
+# Base16 OceanicNext 256 - alacritty color config
+# https://github.com/voronianski/oceanic-next-color-scheme
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x1b2b34'
+#     foreground: '0xc0c5ce'
+
+#   # Colors the cursor will use if `custom_cursor_colors` is true
+#   cursor:
+#     text: '0x1b2b34'
+#     cursor: '0xc0c5ce'
+
+#   # Normal colors
+#   normal:
+#     black:   '0x1b2b34'
+#     red:     '0xec5f67'
+#     green:   '0x99c794'
+#     yellow:  '0xfac863'
+#     blue:    '0x6699cc'
+#     magenta: '0xc594c5'
+#     cyan:    '0x5fb3b3'
+#     white:   '0xc0c5ce'
+
+#   # Bright colors
+#   bright:
+#     black:   '0x65737e'
+#     red:     '0xec5f67'
+#     green:   '0x99c794'
+#     yellow:  '0xfac863'
+#     blue:    '0x6699cc'
+#     magenta: '0xc594c5'
+#     cyan:    '0x5fb3b3'
+#     white:   '0xd8dee9'
+
+#   indexed_colors:
+#     - { index: 16, color: '0xf99157' }
+#     - { index: 17, color: '0xab7967' }
+#     - { index: 18, color: '0x343d46' }
+#     - { index: 19, color: '0x4f5b66' }
+#     - { index: 20, color: '0xa7adba' }
+#     - { index: 21, color: '0xcdd3de' }
+
+# Base16 Gruvbox dark, pale 256 - alacritty color config
+# Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x262626'
+#     foreground: '0xdab997'
+
+#   # Colors the cursor will use if `custom_cursor_colors` is true
+#   cursor:
+#     text: '0x262626'
+#     cursor: '0xdab997'
+
+#   # Normal colors
+#   normal:
+#     black:   '0x262626'
+#     red:     '0xd75f5f'
+#     green:   '0xafaf00'
+#     yellow:  '0xffaf00'
+#     blue:    '0x83adad'
+#     magenta: '0xd485ad'
+#     cyan:    '0x85ad85'
+#     white:   '0xdab997'
+
+#   # Bright colors
+#   bright:
+#     black:   '0x8a8a8a'
+#     red:     '0xd75f5f'
+#     green:   '0xafaf00'
+#     yellow:  '0xffaf00'
+#     blue:    '0x83adad'
+#     magenta: '0xd485ad'
+#     cyan:    '0x85ad85'
+#     white:   '0xebdbb2'
+
+#   indexed_colors:
+#     - { index: 16, color: '0xff8700' }
+#     - { index: 17, color: '0xd65d0e' }
+#     - { index: 18, color: '0x3a3a3a' }
+#     - { index: 19, color: '0x4e4e4e' }
+#     - { index: 20, color: '0x949494' }
+#     - { index: 21, color: '0xd5c4a1' }
 
 # # Base16 Atelier Cave 256 - alacritty color config
 # # Bram de Haan (http://atelierbramdehaan.nl)
@@ -233,113 +339,3 @@ colors:
 #     - { index: 19, color: '0x515151' }
 #     - { index: 20, color: '0xb4b7b4' }
 #     - { index: 21, color: '0xe0e0e0' }
-
-
-
-# TokyoNight Alacritty Colors
-# colors:
-#   # Default colors
-#   primary:
-#     background: '0x24283b'
-#     foreground: '0xc0caf5'
-
-#   # Normal colors
-#   normal:
-#     black:   '0x1D202F'
-#     red:     '0xf7768e'
-#     green:   '0x9ece6a'
-#     yellow:  '0xe0af68'
-#     blue:    '0x7aa2f7'
-#     magenta: '0xbb9af7'
-#     cyan:    '0x7dcfff'
-#     white:   '0xa9b1d6'
-
-#   # Bright colors
-#   bright:
-#     black:   '0x414868'
-#     red:     '0xf7768e'
-#     green:   '0x9ece6a'
-#     yellow:  '0xe0af68'
-#     blue:    '0x7aa2f7'
-#     magenta: '0xbb9af7'
-#     cyan:    '0x7dcfff'
-#     white:   '0xc0caf5'
-
-#   indexed_colors:
-#     - { index: 16, color: '0xff9e64' }
-#     - { index: 17, color: '0xdb4b4b' }
-
-# colors:
-#   # Default colors
-#   primary:
-#     background: '0x1a1b26'
-#     foreground: '0xa9b1d6'
-
-#   # Normal colors
-#   normal:
-#     black:   '0x32344a'
-#     red:     '0xf7768e'
-#     green:   '0x9ece6a'
-#     yellow:  '0xe0af68'
-#     blue:    '0x7aa2f7'
-#     magenta: '0xad8ee6'
-#     cyan:    '0x449dab'
-#     white:   '0x787c99'
-
-#   # Bright colors
-#   bright:
-#     black:   '0x444b6a'
-#     red:     '0xff7a93'
-#     green:   '0xb9f27c'
-#     yellow:  '0xff9e64'
-#     blue:    '0x7da6ff'
-#     magenta: '0xbb9af7'
-#     cyan:    '0x0db9d7'
-#     white:   '0xacb0d0'
-
-# colors:
-#   # theme: horizon
-#    primary:
-#      background: "0x232530"
-#      foreground: "0xC7C9CB"
-#    normal:
-#      black:   "0x16161C"
-#      white:   "0xFDF0ED"
-#      red:     "0xE95678"
-#      green:   "0x09F7A0"
-#      yellow:  "0xFAB795"
-#      blue:    "0x25B2BC"
-#      magenta: "0x6C6F93"
-#      cyan:    "0x27D797"
-#    bright:
-#      black:   "0x1A1C23"
-#      white:   "0xFDF0ED"
-#      red:     "0xF09383"
-#      green:   "0x21BFC2"
-#      blue:    "0x21BFC2"
-#      magenta: "0xB877DB"
-#      cyan:    "0x59E3E3"
-#      yellow:  "0xFAB795"
-
-  # theme: laserwave
-  # primary:
-  #   background: "0x27212E"
-  #   foreground: "0xFFFFFF"
-  # normal:
-  #   black:   "0x222228"
-  #   white:   "0xEEEEFF"
-  #   red:     "0x964477"
-  #   green:   "0x77DDCC"
-  #   yellow:  "0xFFEE66"
-  #   blue:    "0x336677"
-  #   magenta: "0xBB88CC"
-  #   cyan:    "0x667788"
-  # bright:
-  #   black:   "0x222222"
-  #   white:   "0xEEEEEE"
-  #   red:     "0xFFBB55"
-  #   green:   "0x448877"
-  #   blue:    "0x44BBCC"
-  #   magenta: "0xEE66BB"
-  #   cyan:    "0xBBDDEE"
-  #   yellow:  "0xFFEE66"
