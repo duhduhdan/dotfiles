@@ -63,4 +63,4 @@ g.noswapfile = true
 
 cmd [[syntax on]]
 
-cmd [[colorscheme terafox]]
+cmd [[colorscheme tokyonight-moon]]

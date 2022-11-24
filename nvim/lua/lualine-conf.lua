@@ -1,7 +1,7 @@
 require("lualine").setup {
     options = {
         icons_enabled = true,
-        theme = "terafox",
+        theme = "tokyonight",
         component_separators = {
             left = "",
             right = ""

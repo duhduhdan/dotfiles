@@ -8,9 +8,4 @@ require("nvim-treesitter.configs").setup{
     autotag = {
         enable = true
     }
-    -- rainbow = {
-    --     enable = true,
-    --     extend_mode = false,
-    --     max_file_lines = nil,
-    -- }
 }

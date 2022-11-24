@@ -5,10 +5,11 @@ require("telescope").setup{
     file_ignore_patterns = { "node_modules", "__snapshots__" },
     mappings = {
       i = {
-        ["<esc>"] = actions.close
+        ["<esc>"] = actions.close,
+        ["<C-u"] = false
       },
     },
   },
 }
 
--- require("telescope").load_extension("coc")
+require("telescope").load_extension("dap")

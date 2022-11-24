@@ -9,5 +9,8 @@ require "cmp-conf"
 require "prettier-conf"
 require "lsp-conf"
 require "treesitter-conf"
+require "dap-conf"
+require "dap-virtual-text-conf"
+require "dashboard-conf"
 
 vim.cmd [[filetype plugin on]]
