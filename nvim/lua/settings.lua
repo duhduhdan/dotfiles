@@ -31,7 +31,7 @@ opt.timeoutlen = 500
 opt.ttimeoutlen = 500
 
 opt.wildmenu = true
-opt.wildignore = "*.DS_Store, */node_modules/*, */__snapshots__/*, */tmp/**, */.jest/*"
+opt.wildignore = "*.DS_Store, */node_modules/*, */__snapshots__/*, */tmp/**, */.jest/*, '*/.next/*'"
 
 opt.hidden = true
 opt.scrolloff = 5
@@ -58,9 +58,8 @@ opt.rnu = true
 opt.background = "dark"
 opt.termguicolors = true
 
-g.swapfile = false
-g.noswapfile = true
+opt.swapfile = false
 
 cmd [[syntax on]]
 
-cmd [[colorscheme tokyonight-moon]]
+cmd [[colorscheme terafox]]

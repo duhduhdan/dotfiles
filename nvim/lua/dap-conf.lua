@@ -11,11 +11,15 @@ dap.configurations.typescript = {
     name = "Launch TS",
     type = "node2",
     request = "launch",
-    program = "${file}",
+    -- program = "${file}",
     cwd = vim.fn.getcwd(),
+    runtimeArgs = { "-r", "ts-node/register" },
+    runtimeExecutable = "node",
+    args = { "--inspect", "${file}" },
     sourceMaps = true,
-    protocol = "inspector",
-    console = "integratedTerminal",
+    skipFiles = { "<node_internals>/**", "node_modules/**" },
+    -- protocol = "inspector",
+    -- console = "integratedTerminal",
   },
   {
     -- For this to work you need to make sure the node process is started with the `--inspect` flag.
@@ -29,15 +33,35 @@ dap.configurations.typescript = {
     name = "dev:consumer",
     request = "attach",
     type = "node2",
-    skipFiles = { "<node_internals>/**" },
-    cwd = vim.fn.getcwd()
+    runtimeArgs = { "-r", "ts-node/register" },
+    runtimeExecutable = "node",
+    args = { "--inspect", "${file}" },
+    skipFiles = { "<node_internals>/**", "node_modules/**" },
+    sourceMaps = true,
+    cwd = "${workspaceFolder}/packages/indexer"
   },
   {
     command = "npm run dev:crawler",
     name = "dev:crawler",
     request = "attach",
     type = "node2",
-    skipFiles = { "<node_internals>/**" },
+    runtimeArgs = { "-r", "ts-node/register" },
+    runtimeExecutable = "node",
+    args = { "--inspect", "${file}" },
+    skipFiles = { "<node_internals>/**", "node_modules/**" },
+    sourceMaps = true,
     cwd = "${workspaceFolder}/packages/indexer"
-  }
+  },
+  {
+    command = "npm run dev:gql",
+    name = "dev:gql",
+    request = "attach",
+    type = "node2",
+    runtimeArgs = { "-r", "ts-node/register" },
+    runtimeExecutable = "node",
+    args = { "--inspect", "${file}" },
+    skipFiles = { "<node_internals>/**", "node_modules/**" },
+    sourceMaps = true,
+    cwd = "${workspaceFolder}/packages/gql"
+  },
 }

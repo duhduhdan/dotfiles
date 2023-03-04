@@ -1,5 +1,18 @@
 require("nvim-treesitter.configs").setup{
-    ensure_installed = {"typescript", "rust", "lua", "yaml", "vim", "dockerfile", "css", "scss", "html", "javascript"},
+    ensure_installed = {
+        "typescript",
+        "rust",
+        "lua",
+        "yaml",
+        "vim",
+        "dockerfile",
+        "css",
+        "scss",
+        "html",
+        "javascript",
+        "json",
+        "markdown",
+    },
     sync_install = false,
     highlight = {
         enable = true,
@@ -7,5 +20,8 @@ require("nvim-treesitter.configs").setup{
     },
     autotag = {
         enable = true
+    },
+    find_files = {
+        hidden = true
     }
 }
