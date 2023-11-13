@@ -2,7 +2,12 @@ local actions = require("telescope.actions")
 
 require("telescope").setup{
   defaults = {
-    file_ignore_patterns = { "node_modules", "__snapshots__" },
+    file_ignore_patterns = { 
+      "node_modules",
+      "__snapshots__",
+      ".yarn",
+      ".vscode"
+    },
     mappings = {
       i = {
         ["<esc>"] = actions.close,
@@ -11,5 +16,3 @@ require("telescope").setup{
     },
   },
 }
-
-require("telescope").load_extension("dap")

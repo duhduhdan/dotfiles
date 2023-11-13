@@ -12,6 +12,7 @@ require("nvim-treesitter.configs").setup{
         "javascript",
         "json",
         "markdown",
+        "go",
     },
     sync_install = false,
     highlight = {
@@ -21,7 +22,7 @@ require("nvim-treesitter.configs").setup{
     autotag = {
         enable = true
     },
-    find_files = {
-        hidden = true
+    context_commentstring = {
+        enable = true
     }
 }

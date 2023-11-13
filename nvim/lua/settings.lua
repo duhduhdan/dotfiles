@@ -62,4 +62,4 @@ opt.swapfile = false
 
 cmd [[syntax on]]
 
-cmd [[colorscheme terafox]]
+cmd [[colorscheme nordfox]]

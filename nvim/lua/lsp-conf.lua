@@ -50,24 +50,25 @@ local on_attach = function(client, bufnr)
   })
 end
 
-local servers = { 'tsserver', 'tailwindcss', 'rust_analyzer' }
+-- local servers = { 'tsserver', 'tailwindcss', 'rust_analyzer', 'svelte', 'ansiblels' }
+local servers = { 'tsserver', 'rust_analyzer', 'svelte', 'ansiblels' }
 
 local ts_settings = function(client)
   client.resolved_capabilities.document_formatting = false
   ts_settings(client)
 end
 
-local tailwind_settings = function(client)
-  client.tailwindCSS = { classAttributes = { "class", "className", "classList" } }
-  tailwind_settings(client)
-end
+-- local tailwind_settings = function(client)
+--   client.tailwindCSS = { classAttributes = { "class", "className", "classList" } }
+--   tailwind_settings(client)
+-- end
 
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
     ts_settings = ts_settings,
-    tailwind_settings = tailwind_settings,
+    -- tailwind_settings = tailwind_settings,
     flags = {
       debounce_text_changes = 150,
     }
