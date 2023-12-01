@@ -50,8 +50,7 @@ local on_attach = function(client, bufnr)
   })
 end
 
--- local servers = { 'tsserver', 'tailwindcss', 'rust_analyzer', 'svelte', 'ansiblels' }
-local servers = { 'tsserver', 'rust_analyzer', 'svelte', 'ansiblels' }
+local servers = { 'tsserver', 'rust_analyzer', 'svelte', 'ansiblels', 'gopls' }
 
 local ts_settings = function(client)
   client.resolved_capabilities.document_formatting = false

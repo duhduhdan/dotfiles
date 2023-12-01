@@ -121,6 +121,7 @@ require("lazy").setup({
         "json",
         "markdown",
         "go",
+        "graphql",
       },
       sync_install = false,
       highlight = {
@@ -173,7 +174,7 @@ require("lazy").setup({
           "williamboman/mason.nvim",
           config = require("mason").setup()
         },
-		    "williamboman/mason-lspconfig.nvim",
+        "williamboman/mason-lspconfig.nvim",
         -- Autocompletion
         "hrsh7th/nvim-cmp",
         "hrsh7th/cmp-buffer",
