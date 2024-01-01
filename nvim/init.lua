@@ -14,20 +14,21 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   "tpope/vim-repeat",
+  "tpope/vim-commentary",
+  "tpope/vim-surround",
+  "tpope/vim-fugitive",
   "Shatur/neovim-ayu",
   "folke/tokyonight.nvim",
   "sainnhe/everforest",
   "edeneast/nightfox.nvim",
-  "tpope/vim-commentary",
-  "tpope/vim-surround",
   "kylechui/nvim-surround",
-  "tpope/vim-fugitive",
   "alvan/vim-closetag",
   "kdheepak/lazygit.nvim",
   "jiangmiao/auto-pairs",
   "windwp/nvim-ts-autotag",
   "arithran/vim-delete-hidden-buffers",
   "easymotion/vim-easymotion",
+  "Exafunction/codeium.vim",
   {
     "lewis6991/gitsigns.nvim",
     config = require("gitsigns").setup()
@@ -104,7 +105,7 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     dependencies = {
-      "JoosepAlviste/nvim-ts-context-commentstring"
+	    "JoosepAlviste/nvim-ts-context-commentstring"
     },
     config = require("nvim-treesitter.configs").setup({
       ensure_installed = {

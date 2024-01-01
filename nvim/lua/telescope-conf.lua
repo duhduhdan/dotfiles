@@ -24,6 +24,8 @@ require("telescope").setup{
           ["<C-k>"] = lga_actions.quote_prompt(),
           ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
           ["<C-g>"] = lga_actions.quote_prompt({ postfix = " --iglob '*.graphql' " }),
+          ["<C-t>"] = lga_actions.quote_prompt({ postfix = " --iglob '*.ts' " }),
+          ["<C-j>"] = lga_actions.quote_prompt({ postfix = " --iglob '*.tsx' " }),
         }
       }
     }
