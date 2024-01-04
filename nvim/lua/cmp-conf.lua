@@ -1,14 +1,9 @@
 local cmp = require "cmp"
 
-cmp.setup {
-
--- completion settings
+require("cmp").setup {
   completion = {
-    -- completeopt = 'menu,menuone,noselect',
-    keyword_length = 2
+    keyword_length = 2,
   },
-
-  -- key mapping
   mapping = {
     ["<C-n>"] = cmp.mapping.select_next_item(),
     ["<C-p>"] = cmp.mapping.select_prev_item(),
@@ -20,8 +15,6 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-
-    -- Tab mapping
     ["<Tab>"] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()

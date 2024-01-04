@@ -69,7 +69,6 @@ require("lazy").setup({
     config = require("lualine").setup({
       options = {
         icons_enabled = true,
-        -- theme = "ayu",
         component_separators = {
             left = "",
             right = ""
@@ -82,18 +81,18 @@ require("lazy").setup({
         always_divide_middle = true
       },
       sections = {
-        lualine_a = {"mode"},
-        lualine_b = {"branch", "diff", "diagnostics"},
-        lualine_c = {"filename"},
-        lualine_x = {"encoding", "fileformat", "filetype"},
-        lualine_y = {"progress"},
-        lualine_z = {"location"}
+        lualine_a = { "mode" },
+        lualine_b = { "branch", "diff", "diagnostics" },
+        lualine_c = { "filename" },
+        lualine_x = { "encoding", "filetype" },
+        lualine_y = { "progress" },
+        lualine_z = { "location" }
       },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {"filename"},
-        lualine_x = {"location"},
+        lualine_c = { "filename" },
+        lualine_x = { "location" },
         lualine_y = {},
         lualine_z = {}
       },
@@ -135,13 +134,11 @@ require("lazy").setup({
       context_commentstring = {
         enable = true
       },
-    })
+    }),
   },
   {
     "karb94/neoscroll.nvim",
-    config = function()
-      require("neoscroll").setup()
-    end,
+    config = require("neoscroll").setup(),
   },
   {
     "zbirenbaum/copilot.lua",
@@ -197,7 +194,6 @@ require "prettier-conf"
 require "telescope-conf"
 require "cmp-conf"
 require "lsp-conf"
--- require "treesitter-conf"
 
 vim.cmd [[filetype plugin on]]
 

@@ -57,17 +57,11 @@ local ts_settings = function(client)
   ts_settings(client)
 end
 
--- local tailwind_settings = function(client)
---   client.tailwindCSS = { classAttributes = { "class", "className", "classList" } }
---   tailwind_settings(client)
--- end
-
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
     ts_settings = ts_settings,
-    -- tailwind_settings = tailwind_settings,
     flags = {
       debounce_text_changes = 150,
     }

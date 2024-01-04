@@ -1,18 +1,18 @@
 local actions = require("telescope.actions")
 local lga_actions = require("telescope-live-grep-args.actions")
 
-require("telescope").setup{
+require("telescope").setup {
   defaults = {
     file_ignore_patterns = { 
       "node_modules",
       "__snapshots__",
       ".yarn",
-      ".vscode"
+      ".vscode",
     },
     mappings = {
       i = {
         ["<esc>"] = actions.close,
-        ["<C-u"] = false
+        ["<C-u"] = false,
       },
     },
   },
@@ -26,8 +26,8 @@ require("telescope").setup{
           ["<C-g>"] = lga_actions.quote_prompt({ postfix = " --iglob '*.graphql' " }),
           ["<C-t>"] = lga_actions.quote_prompt({ postfix = " --iglob '*.ts' " }),
           ["<C-j>"] = lga_actions.quote_prompt({ postfix = " --iglob '*.tsx' " }),
-        }
-      }
-    }
-  }
+        },
+      },
+    },
+  },
 }
