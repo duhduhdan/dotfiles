@@ -31,11 +31,15 @@ require("lazy").setup({
   "Exafunction/codeium.vim",
   {
     "lewis6991/gitsigns.nvim",
-    config = require("gitsigns").setup()
+    config = function()
+      require("gitsigns").setup()
+    end,
   },
   {
     "folke/trouble.nvim",
-    config = require("trouble").setup({ icons = false })
+    config = function()
+      require("trouble").setup({ icons = false })
+    end,
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -44,6 +48,38 @@ require("lazy").setup({
       "nvim-telescope/telescope-live-grep-args.nvim",
       "nvim-lua/plenary.nvim"
     },
+    config = function()
+      require("telescope").setup({
+        defaults = {
+          file_ignore_patterns = { 
+            "node_modules",
+            "__snapshots__",
+            ".yarn",
+            ".vscode",
+          },
+          mappings = {
+            i = {
+              ["<esc>"] = require("telescope.actions").close,
+              ["<C-u"] = false,
+            },
+          },
+        },
+        extensions = {
+          live_grep_args = {
+            auto_quoting = true,
+            mappings = {
+              i = {
+                ["<C-k>"] = require("telescope-live-grep-args.actions").quote_prompt(),
+                ["<C-i>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob " }),
+                ["<C-g>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob '*.graphql' " }),
+                ["<C-t>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob '*.ts' " }),
+                ["<C-j>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob '*.tsx' " }),
+              },
+            },
+          },
+        },
+      })
+    end
   },
   {
     "nvim-tree/nvim-tree.lua",
@@ -66,79 +102,79 @@ require("lazy").setup({
       "nvim-tree/nvim-web-devicons",
       lazy = true,
     },
-    config = require("lualine").setup({
-      options = {
-        icons_enabled = true,
-        component_separators = {
-            left = "",
-            right = ""
+    config = function()
+      require("lualine").setup({
+        options = {
+          icons_enabled = true,
+          component_separators = {
+              left = "",
+              right = ""
+          },
+          section_separators = {
+              left = "",
+              right = ""
+          },
+          disabled_filetypes = {},
+          always_divide_middle = true
         },
-        section_separators = {
-            left = "",
-            right = ""
+        sections = {
+          lualine_a = { "mode" },
+          lualine_b = { "branch", "diff", "diagnostics" },
+          lualine_c = { "filename" },
+          lualine_x = { "encoding", "filetype" },
+          lualine_y = { "progress" },
+          lualine_z = { "location" }
         },
-        disabled_filetypes = {},
-        always_divide_middle = true
-      },
-      sections = {
-        lualine_a = { "mode" },
-        lualine_b = { "branch", "diff", "diagnostics" },
-        lualine_c = { "filename" },
-        lualine_x = { "encoding", "filetype" },
-        lualine_y = { "progress" },
-        lualine_z = { "location" }
-      },
-      inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = { "filename" },
-        lualine_x = { "location" },
-        lualine_y = {},
-        lualine_z = {}
-      },
-      tabline = {},
-      extensions = {}
-    })
+        inactive_sections = {
+          lualine_a = {},
+          lualine_b = {},
+          lualine_c = { "filename" },
+          lualine_x = { "location" },
+          lualine_y = {},
+          lualine_z = {}
+        },
+        tabline = {},
+        extensions = {}
+      })
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    dependencies = {
-	    "JoosepAlviste/nvim-ts-context-commentstring"
-    },
-    config = require("nvim-treesitter.configs").setup({
-      ensure_installed = {
-        "typescript",
-        "rust",
-        "lua",
-        "yaml",
-        "vim",
-        "dockerfile",
-        "css",
-        "scss",
-        "html",
-        "javascript",
-        "json",
-        "markdown",
-        "go",
-        "graphql",
-      },
-      sync_install = false,
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-      },
-      autotag = {
-        enable = true
-      },
-      context_commentstring = {
-        enable = true
-      },
-    }),
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = {
+          "typescript",
+          "rust",
+          "lua",
+          "yaml",
+          "vim",
+          "dockerfile",
+          "css",
+          "scss",
+          "html",
+          "javascript",
+          "json",
+          "markdown",
+          "go",
+          "graphql",
+        },
+        sync_install = false,
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false,
+        },
+        autotag = {
+          enable = true
+        },
+      })
+    end
   },
   {
     "karb94/neoscroll.nvim",
-    config = require("neoscroll").setup(),
+    config = function()
+      require("neoscroll").setup()
+    end,
   },
   {
     "zbirenbaum/copilot.lua",
@@ -166,14 +202,14 @@ require("lazy").setup({
       "VonHeikemen/lsp-zero.nvim",
       branch = 'v2.x',
       dependencies = {
-        -- LSP support
         "neovim/nvim-lspconfig",
         {
           "williamboman/mason.nvim",
-          config = require("mason").setup()
+          config = function()
+            require("mason").setup()
+          end,
         },
         "williamboman/mason-lspconfig.nvim",
-        -- Autocompletion
         "hrsh7th/nvim-cmp",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
@@ -191,7 +227,6 @@ require "closetag-conf"
 require "prettier-conf"
 
 -- custom 
-require "telescope-conf"
 require "cmp-conf"
 require "lsp-conf"
 
