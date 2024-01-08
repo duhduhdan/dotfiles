@@ -46,7 +46,7 @@ require("lazy").setup({
     version = '0.1.x',
     dependencies = {
       "nvim-telescope/telescope-live-grep-args.nvim",
-      "nvim-lua/plenary.nvim"
+      "nvim-lua/plenary.nvim",
     },
     config = function()
       require("telescope").setup({
@@ -165,7 +165,7 @@ require("lazy").setup({
           additional_vim_regex_highlighting = false,
         },
         autotag = {
-          enable = true
+          enable = true,
         },
       })
     end
