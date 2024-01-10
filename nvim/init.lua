@@ -48,38 +48,6 @@ require("lazy").setup({
       "nvim-telescope/telescope-live-grep-args.nvim",
       "nvim-lua/plenary.nvim",
     },
-    config = function()
-      require("telescope").setup({
-        defaults = {
-          file_ignore_patterns = { 
-            "node_modules",
-            "__snapshots__",
-            ".yarn",
-            ".vscode",
-          },
-          mappings = {
-            i = {
-              ["<esc>"] = require("telescope.actions").close,
-              ["<C-u"] = false,
-            },
-          },
-        },
-        extensions = {
-          live_grep_args = {
-            auto_quoting = true,
-            mappings = {
-              i = {
-                ["<C-k>"] = require("telescope-live-grep-args.actions").quote_prompt(),
-                ["<C-i>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob " }),
-                ["<C-g>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob '*.graphql' " }),
-                ["<C-t>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob '*.ts' " }),
-                ["<C-j>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob '*.tsx' " }),
-              },
-            },
-          },
-        },
-      })
-    end
   },
   {
     "nvim-tree/nvim-tree.lua",
@@ -196,28 +164,28 @@ require("lazy").setup({
           }
         }
       })
-      end,
-    },
-    {
-      "VonHeikemen/lsp-zero.nvim",
-      branch = 'v2.x',
-      dependencies = {
-        "neovim/nvim-lspconfig",
-        {
-          "williamboman/mason.nvim",
-          config = function()
-            require("mason").setup()
-          end,
-        },
-        "williamboman/mason-lspconfig.nvim",
-        "hrsh7th/nvim-cmp",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-        "saadparwaiz1/cmp_luasnip",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-nvim-lua",
-      }
-    },
+    end,
+  },
+  {
+    "VonHeikemen/lsp-zero.nvim",
+    branch = 'v2.x',
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      {
+        "williamboman/mason.nvim",
+        config = function()
+          require("mason").setup()
+        end,
+      },
+      "williamboman/mason-lspconfig.nvim",
+      "hrsh7th/nvim-cmp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lua",
+    }
+  },
 })
 
 -- core
@@ -229,6 +197,7 @@ require "prettier-conf"
 -- custom 
 require "cmp-conf"
 require "lsp-conf"
+require "telescope-conf"
 
 vim.cmd [[filetype plugin on]]
 
