@@ -6,7 +6,7 @@ return {
         ensure_installed = {
           "typescript",
           "rust",
-          "lua",
+          -- "lua",
           "css",
           "html",
           "javascript",
@@ -16,6 +16,7 @@ return {
           "go",
           "graphql",
           "tsx",
+          "vimdoc",
         },
         sync_install = false,
         highlight = {
@@ -32,5 +33,4 @@ return {
       })
     end
   },
-
 }

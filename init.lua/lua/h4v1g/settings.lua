@@ -55,7 +55,3 @@ vim.opt.background = "dark"
 vim.opt.termguicolors = true
 
 vim.opt.swapfile = false
-
-vim.cmd [[syntax on]]
-
-vim.cmd [[colorscheme duskfox]]

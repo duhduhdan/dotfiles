@@ -16,16 +16,11 @@ return {
         "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
         desc = "Buffer diagnostics (Trouble)",
       },
-      -- {
-      --   "<leader>tw",
-      --   "<cmd>Trouble workspace_diagnostics<cr>",
-      --   desc = "Workspace diagnostics (Trouble)",
-      -- },
-      -- {
-      --   "<leader>tf",
-      --   "<cmd>Trouble quickfix<cr>",
-      --   desc = "Quickfix list (Trouble)",
-      -- },
+      {
+        "<leader>tq",
+        "<cmd>Trouble quickfix toggle filter.buf=0<cr>",
+        desc = "Buffer quickfix (Trouble)",
+      },
     },
     opts = {},
   },

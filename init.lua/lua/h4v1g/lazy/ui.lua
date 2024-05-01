@@ -8,6 +8,9 @@ return {
     },
     config = function()
       require("nvim-tree").setup()
+      local api = require("nvim-tree.api")
+
+      vim.keymap.set("n", "<c-n>", api.tree.toggle, {})
     end
   },
   {
@@ -21,12 +24,12 @@ return {
         options = {
           icons_enabled = true,
           component_separators = {
-              left = "",
-              right = ""
+            left = "",
+            right = ""
           },
           section_separators = {
-              left = "",
-              right = ""
+            left = "",
+            right = ""
           },
           disabled_filetypes = {},
           always_divide_middle = true

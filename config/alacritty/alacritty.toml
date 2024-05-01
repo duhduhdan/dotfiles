@@ -1,0 +1,16 @@
+import = [
+  "~/.config/alacritty/colors/tokyonight/moon.toml"
+]
+
+[font]
+normal = { family = "mononoki Nerd Font Mono" }
+bold = { family = "mononoki Nerd Font Mono", style = "bold" }
+italic = { family = "mononoki Nerd Font Mono", style = "italic" }
+size = 15.0
+
+[env]
+term = "xterm-256color"
+
+[window]
+decorations = "None"
+opacity = 1.0

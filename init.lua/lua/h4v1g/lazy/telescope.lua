@@ -8,6 +8,7 @@ return {
     },
     config = function()
       local actions = require("telescope.actions")
+      local builtin = require("telescope.builtin")
       local lga = require("telescope-live-grep-args.actions")
 
       require("telescope").setup({
@@ -40,6 +41,23 @@ return {
           },
         },
       })
+
+      vim.keymap.set("n", "<leader>pws", function()
+        local word = vim.fn.expand("<cword>")
+        builtin.grep_string({ search = word })
+      end)
+
+      vim.keymap.set("n", "<leader>pWs", function()
+        local word = vim.fn.expand("<cWORD>")
+        builtin.grep_string({ search = word })
+      end)
+
+      vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+      vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
+      vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+      vim.keymap.set("n", "<leader>bf", builtin.current_buffer_fuzzy_find, {})
+      vim.keymap.set("n", "<leader>x", builtin.commands, {})
+      vim.keymap.set("n", "<leader>ss", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>")
     end
   },
 }

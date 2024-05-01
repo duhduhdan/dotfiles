@@ -38,22 +38,18 @@ shift + alt - space : \
     yabai -m window --toggle border
 
 # restart yabai
-shift + lctrl + alt - r : \
-    /usr/bin/env osascript <<< \
-        "display notification \"Restarting Yabai\" with title \"Yabai\""; \
-    launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
-
+shift + lctrl + alt - r : yabai --restart-service
 
 
 # create desktop, move window, follow focus
 shift + alt - m : yabai -m space --create && \
-                  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+                  index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
                   yabai -m window --space "${index}" && \
                   yabai -m space --focus "${index}"
 
 # create desktop, follow focus
 shift + alt - n : yabai -m space --create && \
-                  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+                  index="$(yabai -m query --spaces --display | jq 'map(select(."isnative-fullscreen" == false))[-1].index')" && \
                   yabai -m space --focus "${index}"
 
 # kill desktop
