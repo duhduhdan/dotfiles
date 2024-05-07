@@ -17,6 +17,7 @@ return {
           "graphql",
           "tsx",
           "vimdoc",
+          "zig",
         },
         sync_install = false,
         highlight = {

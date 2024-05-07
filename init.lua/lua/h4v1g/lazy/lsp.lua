@@ -24,6 +24,11 @@ return {
         cmp_lsp.default_capabilities())
 
       require("fidget").setup({})
+      -- require("mason").setup({
+      --   registries = {
+      --     "file:~/dev/mason-registry"
+      --   }
+      -- })
       require("mason").setup()
       require("mason-lspconfig").setup({
         ensure_installed = {
@@ -31,6 +36,7 @@ return {
           "rust_analyzer",
           "gopls",
           "tsserver",
+          "zls"
         },
         handlers = {
           function(server_name) -- default handler (optional)
