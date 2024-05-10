@@ -10,7 +10,9 @@ return {
       require("nvim-tree").setup()
       local api = require("nvim-tree.api")
 
-      vim.keymap.set("n", "<c-n>", api.tree.toggle, {})
+      vim.keymap.set("n", "<c-n>", function()
+        api.tree.toggle({ find_file = true })
+      end, {})
     end
   },
   {
