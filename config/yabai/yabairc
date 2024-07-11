@@ -3,7 +3,7 @@ sudo yabai --load-sa
 
 yabai -m config layout                        bsp
 
-yabai -m config top_padding                   48
+yabai -m config top_padding                   16
 yabai -m config bottom_padding                16
 yabai -m config left_padding                  16
 yabai -m config right_padding                 16
@@ -15,7 +15,7 @@ yabai -m config focus_follows_mouse           off
 yabai -m config window_placement              second_child
 yabai -m config window_opacity                on
 yabai -m config window_opacity_duration       0.0
-yabai -m config window_shadow                 float
+yabai -m config window_shadow                 off
 
 yabai -m config active_window_opacity         1.0
 yabai -m config normal_window_opacity         0.90
@@ -35,3 +35,7 @@ yabai -m rule --add label="Activity Monitor" app="^Activity Monitor$" manage=off
 yabai -m rule --add label="Software Update" title="Software Update" manage=off
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
 yabai -m rule --add label="Phantom Wallet" app="^Chrome$" title="Phantom Wallet" manage=off
+yabai -m rule --add app="zig-survivors" title="survivors" manage=off
+yabai -m rule --add app="^Firefox$" title="Extension: (MetaMask) - MetaMask" manage=off
+yabai -m rule --add app="^Raycast$" title="Raycast Settings" manage=off
+

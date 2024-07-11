@@ -1,7 +1,7 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
-    version = "0.1.5",
+    version = "0.1.8",
     dependencies = {
       "nvim-telescope/telescope-live-grep-args.nvim",
       "nvim-lua/plenary.nvim",
@@ -31,11 +31,11 @@ return {
             auto_quoting = true,
             mappings = {
               i = {
-                ["<C-k>"] = lga.quote_prompt(),
                 ["<C-i>"] = lga.quote_prompt({ postfix = " --iglob " }),
                 ["<C-g>"] = lga.quote_prompt({ postfix = " --iglob '*.graphql' " }),
                 ["<C-t>"] = lga.quote_prompt({ postfix = " --iglob '*.ts' " }),
                 ["<C-j>"] = lga.quote_prompt({ postfix = " --iglob '*.tsx' " }),
+                ["<C-e>"] = lga.quote_prompt({ postfix = " -w -S" }),
               },
             },
           },

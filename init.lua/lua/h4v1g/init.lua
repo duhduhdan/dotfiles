@@ -3,10 +3,11 @@ require("h4v1g.lazy_init")
 require("h4v1g.maps")
 
 local augroup = vim.api.nvim_create_augroup
-local h4v1g_group = augroup("H4v1g", {})
-
 local autocmd = vim.api.nvim_create_autocmd
+
+local h4v1g_group = augroup("H4v1g", {})
 local yank_group = augroup("HighlightYank", {})
+local glsl_group = augroup("GLSL", {})
 
 autocmd("TextYankPost", {
   group = yank_group,
@@ -23,6 +24,20 @@ autocmd("BufWritePre", {
   group = h4v1g_group,
   pattern = "*",
   command = [[%s/\s\+$//e]],
+})
+
+-- nvim-tree-sitter refuses to acknowledge a shader can be more than just *.glsl
+-- filetype so tell it to fix its attitude
+autocmd("BufRead", {
+  group = glsl_group,
+  pattern = { "*.vert", "*.frag", "*.fs", "*.vs" },
+  command = "set filetype=glsl"
+})
+
+autocmd("BufWrite", {
+  group = glsl_group,
+  pattern = { "*.vert", "*.frag", "*.fs", "*.vs" },
+  command = "set filetype=glsl"
 })
 
 autocmd("LspAttach", {

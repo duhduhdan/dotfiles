@@ -1,0 +1,128 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "console_title_template": " {{ .Folder }} :: {{if .Root}}Admin{{end}}",
+  "palette": {
+    "base": "#191724",
+    "surface": "#1f1d2e",
+    "overlay": "#26233a",
+    "muted": "#6e6a86",
+    "subtle": "#908caa",
+    "text": "#e0def4",
+    "love": "#eb6f92",
+    "gold": "#f6c177",
+    "rose": "#ebbcba",
+    "pine": "#31748f",
+    "foam": "#9ccfd8",
+    "iris": "#c4a7e7",
+    "highlight_low": "#21202e",
+    "highlight_med": "#403d52",
+    "highlight_high": "#524f67",
+    "t-background": "p:base"
+  },
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "background": "transparent",
+          "foreground": "p:pine",
+          "template": "\u279c "
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "p:iris",
+          "properties": {
+            "style": "folder"
+          },
+          "template": "<b>{{ .Path }}</b> <p:foam>\u26a1</>"
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "p:foam",
+          "foreground_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}p:love{{ end }}",
+            "{{ if and (gt .Ahead 0) (gt .Behind 0)}}p:rose {{ end }}",
+            "{{ if gt .Ahead 0 }}p:pine{{ end }}",
+            "{{ if gt .Behind 0 }}p:iris{{ end }}"
+          ],
+          "template": "({{ .HEAD}})",
+          "properties": {
+            "fetch_status": true,
+            "branch_icon": "\ue725 "
+          }
+        },
+        {
+          "type": "status",
+          "style": "plain",
+          "foreground": "p:love",
+          "template": " \uf00d"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "right",
+      "overflow": "hide",
+      "segments": [
+        {
+          "type": "node",
+          "style": "plain",
+          "foreground": "p:gold",
+          "template": "\ue718 {{ .Full }} "
+        },
+        {
+          "type": "python",
+          "style": "plain",
+          "foreground": "p:gold",
+          "template": "\uE235 {{ .Full }}"
+        },
+        {
+          "type": "go",
+          "style": "plain",
+          "foreground": "p:gold",
+          "template": "\uFCD1 {{ .Full}}"
+        },
+        {
+          "type": "command",
+          "style": "plain",
+          "foreground": "p:gold",
+          "properties": {
+            "command": "git log --pretty=format:%cr -1 || date +%H:%M:%S",
+            "shell": "bash"
+          }
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "p:pine",
+          "style": "plain",
+          "template": "\u25b6",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "secondary_prompt": {
+    "background": "transparent",
+    "foreground": "p:pine",
+    "template": "\u279c "
+  },
+  "transient_prompt": {
+    "background": "p:base",
+    "foreground": "p:pine",
+    "template": "\u279c "
+  },
+  "final_space": true,
+  "version": 2,
+  "terminal_background": "p:t-background"
+}

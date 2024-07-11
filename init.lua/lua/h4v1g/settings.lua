@@ -55,3 +55,5 @@ vim.opt.background = "dark"
 vim.opt.termguicolors = true
 
 vim.opt.swapfile = false
+
+vim.opt.conceallevel = 1

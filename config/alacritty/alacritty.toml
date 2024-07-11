@@ -1,5 +1,5 @@
 import = [
-  "~/.config/alacritty/colors/tokyonight/moon.toml"
+  "~/.config/alacritty/colors/rose-pine/rose_pine.toml"
 ]
 
 [font]
@@ -14,3 +14,4 @@ term = "xterm-256color"
 [window]
 decorations = "None"
 opacity = 1.0
+padding = { x = 8, y = 8 }

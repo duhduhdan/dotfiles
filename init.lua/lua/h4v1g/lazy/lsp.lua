@@ -24,11 +24,6 @@ return {
         cmp_lsp.default_capabilities())
 
       require("fidget").setup({})
-      -- require("mason").setup({
-      --   registries = {
-      --     "file:~/dev/mason-registry"
-      --   }
-      -- })
       require("mason").setup()
       require("mason-lspconfig").setup({
         ensure_installed = {
@@ -36,12 +31,30 @@ return {
           "rust_analyzer",
           "gopls",
           "tsserver",
-          "zls"
+          "zls",
+          "clangd",
+          "glsl_analyzer"
         },
         handlers = {
           function(server_name) -- default handler (optional)
             require("lspconfig")[server_name].setup {
               capabilities = capabilities
+            }
+          end,
+
+
+          ["zls"] = function()
+            local lspconfig = require("lspconfig")
+            lspconfig.zls.setup {
+              capabilities = capabilities,
+              settings = {
+                Zig = {
+                  enableSnippets = true,
+                  enableBuildOnSave = true,
+                  warnStyle = true,
+                  enableAutofix = true,
+                }
+              }
             }
           end,
 
@@ -72,7 +85,9 @@ return {
         },
         mapping = cmp.mapping.preset.insert({
           ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+          ["<C-k>"] = cmp.mapping.select_prev_item(cmp_select),
           ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+          ["<C-j>"] = cmp.mapping.select_next_item(cmp_select),
           ["<C-y"] = cmp.mapping.confirm({ select = true }),
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-d>"] = cmp.mapping.scroll_docs(-4),
@@ -105,7 +120,6 @@ return {
       })
 
       vim.diagnostic.config({
-        -- update_in_insert = true,
         float = {
           focusable = false,
           style = "minimal",

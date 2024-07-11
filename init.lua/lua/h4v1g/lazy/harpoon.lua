@@ -26,7 +26,8 @@ return {
             vim.keymap.set("i", "<C-r>", function()
               local selected_entry = require("telescope.actions.state").get_selected_entry()
               if selected_entry then
-                local item = harpoon:list():get_by_display(selected_entry.value)
+                -- local item = harpoon:list():get_by_display(selected_entry.value)
+                local item = harpoon:list():select(selected_entry.value)
                 harpoon:list():remove(item)
                 print("removed " .. item.value .. " from harpoon list")
               end
