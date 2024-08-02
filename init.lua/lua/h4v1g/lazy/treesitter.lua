@@ -1,4 +1,5 @@
 return {
+  "nvim-treesitter/nvim-treesitter-refactor",
   {
     "nvim-treesitter/nvim-treesitter",
     config = function()
@@ -21,6 +22,7 @@ return {
           "c",
           "cpp",
           "glsl",
+          "odin"
         },
         sync_install = false,
         highlight = {
@@ -30,6 +32,17 @@ return {
         indent = {
           enable = true,
         },
+        refactor = {
+          highlight_definitions = {
+            enable = true,
+          },
+          smart_rename = {
+            enable = true,
+            keymaps = {
+              smart_rename = "grr"
+            }
+          }
+        }
       })
     end
   },

@@ -6,12 +6,12 @@ import = [
 normal = { family = "mononoki Nerd Font Mono" }
 bold = { family = "mononoki Nerd Font Mono", style = "bold" }
 italic = { family = "mononoki Nerd Font Mono", style = "italic" }
-size = 15.0
+size = 14
 
 [env]
 term = "xterm-256color"
 
 [window]
-decorations = "None"
+decorations = "buttonless"
 opacity = 1.0
 padding = { x = 8, y = 8 }

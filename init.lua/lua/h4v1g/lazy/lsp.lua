@@ -33,12 +33,25 @@ return {
           "tsserver",
           "zls",
           "clangd",
-          "glsl_analyzer"
+          "glsl_analyzer",
+          "ols"
         },
         handlers = {
           function(server_name) -- default handler (optional)
             require("lspconfig")[server_name].setup {
               capabilities = capabilities
+            }
+          end,
+
+          ["ols"] = function()
+            local lspconfig = require("lspconfig")
+            lspconfig.ols.setup {
+              capabilities = capabilities,
+              settings = {
+                Odin = {
+                  enable_hover = true
+                }
+              }
             }
           end,
 

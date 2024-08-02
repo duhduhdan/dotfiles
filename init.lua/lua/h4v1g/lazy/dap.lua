@@ -61,6 +61,21 @@ return {
       }
     }
 
+    dap.configurations.typescript = {
+      {
+        name = "debug typescriptchrome",
+        type = "chrome",
+        request = "attach",
+        program = "${file}",
+        cwd = vim.fn.getcwd(),
+        sourceMaps = true,
+        protocol = "inspector",
+        port = 9222,
+        webRoot = "${workspaceFolder}",
+        skipFiles = { "**/node_modules/**" }
+      }
+    }
+
     vim.keymap.set("n", "<leader>bb", dap.toggle_breakpoint)
 
     vim.keymap.set("n", "<leader>h", dap.continue)

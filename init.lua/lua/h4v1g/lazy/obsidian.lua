@@ -1,10 +1,9 @@
 return {
   "epwalsh/obsidian.nvim",
-  version = "*", -- recommended, use latest release instead of latest commit
+  version = "*",
   lazy = true,
   ft = "markdown",
   dependencies = {
-    -- Required.
     "nvim-lua/plenary.nvim",
     "hrsh7th/nvim-cmp",
     "nvim-telescope/telescope.nvim",
@@ -15,6 +14,9 @@ return {
       {
         name = "brainiac",
         path = "~/Documents/Obsidian/brainiac",
+        overrides = {
+          notes_subdir = "inbox",
+        },
       },
     },
 
@@ -49,7 +51,7 @@ return {
       }
     },
 
-    new_notes_location = "inbox",
+    new_notes_location = "notes_subdir",
 
     -- Optional, customize how note IDs are generated given an optional title.
     ---@param title string|?
@@ -78,6 +80,33 @@ return {
       -- A map for custom variables, the key should be the variable and the value a function
       substitutions = {},
     },
+
+    -- Optional, alternatively you can customize the frontmatter data.
+    ---@return table
+    note_frontmatter_func = function(note)
+      -- Add the title of the note as an alias.
+      if note.title then
+        note:add_alias(note.title)
+      end
+
+      local out = {
+        id = note.id:lower():gsub("%s+", "-"),
+        aliases = note.aliases,
+        tags = note.tags,
+        date = note.date,
+        time = note.time,
+      }
+
+      -- `note.metadata` contains any manually added fields in the frontmatter.
+      -- So here we just make sure those fields are kept in the frontmatter.
+      if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
+        for k, v in pairs(note.metadata) do
+          out[k] = v
+        end
+      end
+
+      return out
+    end,
 
     -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
     -- URL it will be ignored but you can customize this behavior here.
