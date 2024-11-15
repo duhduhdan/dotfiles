@@ -13,7 +13,7 @@ return {
     workspaces = {
       {
         name = "brainiac",
-        path = "~/Documents/Obsidian/brainiac",
+        path = "~/Obsidian/brainiac",
         overrides = {
           notes_subdir = "inbox",
         },

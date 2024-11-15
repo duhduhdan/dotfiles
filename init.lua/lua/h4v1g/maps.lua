@@ -11,6 +11,7 @@ vim.keymap.set("n", "<leader>wh", "<C-w>h")            -- move to left split
 vim.keymap.set("n", "<leader>wk", "<C-w>k")            -- move to top split
 vim.keymap.set("n", "<leader>wj", "<C-w>j")            -- move to bottom split
 vim.keymap.set("n", "<leader>w=", "<c-w>=")            -- balance splits
+vim.keymap.set("n", "<leader>yy", "+y")                -- copy line to sys clipboard
 
 vim.keymap.set("n", "<leader>d", "d0kJ")               -- remove leading space, join two lines
 

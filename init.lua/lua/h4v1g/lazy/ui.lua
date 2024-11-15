@@ -34,7 +34,8 @@ return {
             right = ""
           },
           disabled_filetypes = {},
-          always_divide_middle = true
+          always_divide_middle = true,
+          theme = "nordfox"
         },
         sections = {
           lualine_a = { "mode" },

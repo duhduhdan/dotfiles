@@ -5,13 +5,27 @@ return {
     "theHamsta/nvim-dap-virtual-text",
     "nvim-neotest/nvim-nio",
     "williamboman/mason.nvim",
+    "jay-babu/mason-nvim-dap.nvim",
+    "leoluz/nvim-dap-go",
   },
   config = function()
     local dap = require("dap")
     local ui = require("dapui")
 
+    local function get_arguments(service, env)
+      local filename = "work/tally/.tally/" .. service .. "-args-" .. env
+      local fn = vim.fn.getenv("HOME") .. "/" .. filename
+      local file_content = vim.fn.readfile(fn)
+      return vim.split(file_content[1] or "", " ")
+    end
+
     require("dapui").setup()
     require("nvim-dap-virtual-text").setup()
+    require("dap-go").setup({
+      delve = {
+        detached = vim.fn.has 'win32' == 0,
+      },
+    })
 
     dap.adapters.codelldb = {
       type = "server",
@@ -27,6 +41,12 @@ return {
       command = "node",
       args = { os.getenv("HOME") .. "/dev/vscode-chrome-debug/out/src/chromeDebug.js" }
     }
+
+    -- dap.adapters.go = {
+    --   type = "executable",
+    --   command = "dlv",
+    --   args = { "dap", "-l", "127.0.0.1:38697" },
+    -- }
 
     dap.configurations.zig = {
       {
@@ -74,6 +94,47 @@ return {
         webRoot = "${workspaceFolder}",
         skipFiles = { "**/node_modules/**" }
       }
+    }
+
+    dap.configurations.go = {
+      {
+        name = "Debug Package",
+        type = "go",
+        request = "launch",
+        program = "${fileDirname}",
+        exitAfterTaskReturns = false,
+      },
+      {
+        name = "Debug Package (Arguments)",
+        type = "go",
+        request = "launch",
+        program = "${fileDirname}",
+        args = get_arguments,
+        exitAfterTaskReturns = false,
+      },
+      {
+        name = "Debug tally API local",
+        type = "go",
+        request = "launch",
+        program = "${fileDirname}",
+        args = get_arguments("api", "local"),
+        logOutput = "dap",
+        showLog = true,
+      },
+      {
+        name = "Debug tally API staging",
+        type = "go",
+        request = "launch",
+        program = "${fileDirname}",
+        args = get_arguments("api", "staging")
+      },
+      {
+        name = "Debug tally API prod",
+        type = "go",
+        request = "launch",
+        program = "${fileDirname}",
+        args = get_arguments("api", "prod")
+      },
     }
 
     vim.keymap.set("n", "<leader>bb", dap.toggle_breakpoint)

@@ -13,7 +13,7 @@ vim.opt.tabstop = 2
 vim.opt.smartindent = true
 vim.opt.expandtab = true
 
-vim.opt.clipboard = vim.opt.clipboard + "unnamed"
+vim.opt.clipboard = vim.opt.clipboard + "unnamedplus"
 
 vim.opt.list = false
 vim.opt.tabpagemax = 30
