@@ -1,3 +1,14 @@
 return {
-  { 'echasnovski/mini.nvim', version = false },
+  {
+    'echasnovski/mini.nvim',
+    version = "*",
+    config = function()
+      require("mini.ai").setup()
+      require("mini.comment").setup()
+      require("mini.pairs").setup()
+      require("mini.surround").setup()
+      require("mini.icons").setup()
+      require("mini.diff").setup()
+    end
+  },
 }

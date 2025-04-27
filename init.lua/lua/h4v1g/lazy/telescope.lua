@@ -26,39 +26,40 @@ return {
             },
           },
         },
-        extensions = {
-          live_grep_args = {
-            auto_quoting = true,
-            mappings = {
-              i = {
-                ["<C-i>"] = lga.quote_prompt({ postfix = " --iglob " }),
-                ["<C-g>"] = lga.quote_prompt({ postfix = " --iglob '*.graphql' " }),
-                ["<C-t>"] = lga.quote_prompt({ postfix = " --iglob '*.ts' " }),
-                ["<C-j>"] = lga.quote_prompt({ postfix = " --iglob '*.tsx' " }),
-                ["<C-e>"] = lga.quote_prompt({ postfix = " -w -S" }),
-              },
-            },
-          },
-        },
+        -- extensions = {
+        --   live_grep_args = {
+        --     auto_quoting = true,
+        --     mappings = {
+        --       i = {
+        --         ["<C-i>"] = lga.quote_prompt({ postfix = " --iglob " }),
+        --         ["<C-g>"] = lga.quote_prompt({ postfix = " --iglob '*.graphql' " }),
+        --         ["<C-t>"] = lga.quote_prompt({ postfix = " --iglob '*.ts' " }),
+        --         ["<C-j>"] = lga.quote_prompt({ postfix = " --iglob '*.tsx' " }),
+        --         ["<C-e>"] = lga.quote_prompt({ postfix = " -w -S" }),
+        --         ["<C-s>"] = lga.quote_prompt({ postfix = " --iglob '*.spec.ts*' " }),
+        --       },
+        --     },
+        --   },
+        -- },
       })
 
-      vim.keymap.set("n", "<leader>pws", function()
-        local word = vim.fn.expand("<cword>")
-        builtin.grep_string({ search = word })
-      end)
+      -- vim.keymap.set("n", "<leader>pws", function()
+      --   local word = vim.fn.expand("<cword>")
+      --   builtin.grep_string({ search = word })
+      -- end)
+      --
+      -- vim.keymap.set("n", "<leader>pWs", function()
+      --   local word = vim.fn.expand("<cWORD>")
+      --   builtin.grep_string({ search = word })
+      -- end)
 
-      vim.keymap.set("n", "<leader>pWs", function()
-        local word = vim.fn.expand("<cWORD>")
-        builtin.grep_string({ search = word })
-      end)
-
-      vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-      vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-      vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
-      vim.keymap.set("n", "<leader>sf", builtin.lsp_document_symbols, {})
-      vim.keymap.set("n", "<leader>bf", builtin.current_buffer_fuzzy_find, {})
-      vim.keymap.set("n", "<leader>x", builtin.commands, {})
-      vim.keymap.set("n", "<leader>ss", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>")
+      -- vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+      -- vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
+      -- vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+      -- vim.keymap.set("n", "<leader>sf", builtin.lsp_document_symbols, {})
+      -- vim.keymap.set("n", "<leader>bf", builtin.current_buffer_fuzzy_find, {})
+      -- vim.keymap.set("n", "<leader>x", builtin.commands, {})
+      -- vim.keymap.set("n", "<leader>ss", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>")
     end
   },
 }

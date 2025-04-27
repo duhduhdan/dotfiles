@@ -2,7 +2,7 @@ vim.keymap.set("i", "jk", "<esc>")                     -- get back to normal mod
 vim.keymap.set("n", "<leader>fs", ":w<cr>")            -- save file
 vim.keymap.set("n", "<leader>qq", ":q<cr>")            -- quit
 vim.keymap.set("n", "<leader>wc", ":close<cr>")        -- close split window
-vim.keymap.set("n", "<esc>", ":noh<cr>")               -- clear search highlight
+-- vim.keymap.set("n", "<esc>", ":noh<cr>")               -- clear search highlight
 
 vim.keymap.set("n", "<leader>wv", "<cmd>vsplit<cr>")   -- vertical split
 vim.keymap.set("n", "<leader>ws", "<cmd>split<cr>")    -- horizontal split

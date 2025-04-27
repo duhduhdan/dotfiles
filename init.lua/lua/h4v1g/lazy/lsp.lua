@@ -11,7 +11,6 @@ return {
       "hrsh7th/nvim-cmp",
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
-      "j-hui/fidget.nvim",
     },
 
     config = function()
@@ -23,13 +22,11 @@ return {
         vim.lsp.protocol.make_client_capabilities(),
         cmp_lsp.default_capabilities())
 
-      require("fidget").setup({})
       require("mason").setup()
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls",
           "rust_analyzer",
-          "gopls",
           "ts_ls",
           "zls",
           "clangd",
@@ -55,7 +52,6 @@ return {
             }
           end,
 
-
           ["zls"] = function()
             local lspconfig = require("lspconfig")
             lspconfig.zls.setup {
@@ -77,9 +73,15 @@ return {
               capabilities = capabilities,
               settings = {
                 Lua = {
-                  runtime = { version = "Lua 5.1" },
+                  runtime = { version = "Lua 5.4.7" },
                   diagnostics = {
-                    globals = { "vim", "it", "describe", "before_each", "after_each" },
+                    globals = { "vim", "it", "describe", "before_each", "after_each", "Snacks" },
+                  },
+                  workspace = {
+                    library = {
+                      vim.env.VIMRUNTIME,
+                      vim.fn.stdpath("data") .. "/lazy/snacks.nvim/lua",
+                    }
                   }
                 }
               }
@@ -87,6 +89,32 @@ return {
           end,
         }
       })
+
+      local lspconfig = require("lspconfig")
+      lspconfig.sourcekit.setup {
+        capabilities = {
+          workspace = {
+            didChangeWatchedFiles = {
+              dynamicRegistration = true
+            }
+          }
+        },
+        -- capabilities = capabilities,
+        cmd = { "xcrun", "sourcekit-lsp" },
+        filetypes = { "swift", "m", "h" },
+        root_dir = function(fname)
+          return lspconfig.util.root_pattern(
+            "ios/*.xcodeproj",
+            "node_modules/react-native/package.json"
+          )(fname) or vim.loop.cwd()
+        end,
+        init_options = {
+          buildSettings = {
+            buildSystem = "xcode",
+            sdkPath = vim.fn.trim(vim.fn.system("xcrun --show-sdk-path"))
+          }
+        }
+      }
 
       local cmp_select = { behavior = cmp.SelectBehavior.Select }
 

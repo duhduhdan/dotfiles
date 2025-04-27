@@ -1,26 +1,6 @@
 return {
   {
-    "nvim-tree/nvim-tree.lua",
-    version = "*",
-    lazy = false,
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-      require("nvim-tree").setup()
-      local api = require("nvim-tree.api")
-
-      vim.keymap.set("n", "<c-n>", function()
-        api.tree.toggle({ find_file = true })
-      end, {})
-    end
-  },
-  {
     "nvim-lualine/lualine.nvim",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-      lazy = true,
-    },
     config = function()
       require("lualine").setup({
         options = {
