@@ -4,6 +4,7 @@ font-size=16
 theme=nordfox
 window-width=140
 window-height=45
+background-opacity=0.85
 
 keybind=super+shift+e=toggle_fullscreen
 

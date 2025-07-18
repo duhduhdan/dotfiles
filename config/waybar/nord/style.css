@@ -1,0 +1,123 @@
+@import "nord/nord.css";
+
+window {
+  background-color: @nord1;
+}
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/*
+* Left part
+*/
+#mode {
+  color: @nord0;
+  background-color: @nord13;
+  margin-left: 8px;
+  padding: 0px 6px;
+}
+
+#workspaces button {
+  margin-left: 8px;
+  padding: 0px 4px;
+  color: @nord7;
+  margin-top: 0;
+}
+
+#workspaces button.hover {
+  background-color: transparent;
+}
+
+#workspaces button.focused {
+  background-color: transparent;
+}
+
+#window {
+  margin-left: 10px;
+  color: @nord5;
+  font-weight: bold;
+  padding: 0px 5px;
+}
+
+/*
+* Right part
+*/
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#clock,
+#tray,
+#custom-power {
+  color: @nord4;
+}
+
+#custom-swaync {
+  padding: 0 24px;
+}
+
+#custom-power {
+  background-color: @nord15;
+  padding: 0 12px;
+}
+
+#clock {
+  background-color: @nord3;
+  padding: 0 24px;
+}
+
+#pulseaudio {
+  background-color: @nord10;
+  padding-right: 24px;
+  padding-left: 24px;
+}
+
+#pulseaudio.muted {
+  background-color: @nord13;
+  color: @nord3;
+}
+
+#cpu {
+  background-color: @nord1;
+  padding-right: 12px;
+  padding-left: 24px;
+}
+
+#memory {
+  background-color: @nord1;
+  padding-right: 24px;
+  padding-left: 12px;
+}
+
+#network {
+  background-color: @nord0;
+  padding-right: 24px;
+  padding-left: 24px;
+}
+
+
+#network.disconnected {
+  background-color: @nord13;
+  color: @nord0;
+}
+
+#network.disabled
+ {
+  background-color: @nord15;
+  color: @nord0;
+}
+
+#tray {
+  padding: 0 12px;
+  background-color: @nord9;
+}
+
+#tray menu {
+  background-color: @nord2;
+  color: @nord4;
+  padding: 10px 5px;
+  border: 2px solid @nord1;
+}

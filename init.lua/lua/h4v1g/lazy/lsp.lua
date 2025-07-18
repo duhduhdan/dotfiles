@@ -33,88 +33,47 @@ return {
           "glsl_analyzer",
           "ols"
         },
-        handlers = {
-          function(server_name) -- default handler (optional)
-            require("lspconfig")[server_name].setup {
-              capabilities = capabilities
-            }
-          end,
+      })
 
-          ["ols"] = function()
-            local lspconfig = require("lspconfig")
-            lspconfig.ols.setup {
-              capabilities = capabilities,
-              settings = {
-                Odin = {
-                  enable_hover = true
-                }
-              }
-            }
-          end,
+      vim.lsp.config("*", {
+        capabilities = capabilities,
+      })
 
-          ["zls"] = function()
-            local lspconfig = require("lspconfig")
-            lspconfig.zls.setup {
-              capabilities = capabilities,
-              settings = {
-                Zig = {
-                  enableSnippets = true,
-                  enableBuildOnSave = true,
-                  warnStyle = true,
-                  enableAutofix = true,
-                }
-              }
-            }
-          end,
-
-          ["lua_ls"] = function()
-            local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup {
-              capabilities = capabilities,
-              settings = {
-                Lua = {
-                  runtime = { version = "Lua 5.4.7" },
-                  diagnostics = {
-                    globals = { "vim", "it", "describe", "before_each", "after_each", "Snacks" },
-                  },
-                  workspace = {
-                    library = {
-                      vim.env.VIMRUNTIME,
-                      vim.fn.stdpath("data") .. "/lazy/snacks.nvim/lua",
-                    }
-                  }
-                }
-              }
-            }
-          end,
+      vim.lsp.config("ols", {
+        settings = {
+          ols = {
+            enable_hover = true
+          }
         }
       })
 
-      local lspconfig = require("lspconfig")
-      lspconfig.sourcekit.setup {
-        capabilities = {
-          workspace = {
-            didChangeWatchedFiles = {
-              dynamicRegistration = true
+      vim.lsp.config("lua_ls", {
+        settings = {
+          Lua = {
+            runtime = { version = "Lua 5.4.7" },
+            diagnostics = {
+              globals = { "vim", "it", "describe", "before_each", "after_each", "Snacks" },
+            },
+            workspace = {
+              library = {
+                vim.env.VIMRUNTIME,
+                vim.fn.stdpath("data") .. "/lazy/snacks.nvim/lua",
+              }
             }
           }
-        },
-        -- capabilities = capabilities,
-        cmd = { "xcrun", "sourcekit-lsp" },
-        filetypes = { "swift", "m", "h" },
-        root_dir = function(fname)
-          return lspconfig.util.root_pattern(
-            "ios/*.xcodeproj",
-            "node_modules/react-native/package.json"
-          )(fname) or vim.loop.cwd()
-        end,
-        init_options = {
-          buildSettings = {
-            buildSystem = "xcode",
-            sdkPath = vim.fn.trim(vim.fn.system("xcrun --show-sdk-path"))
+        }
+      })
+
+      vim.lsp.config("zls", {
+        root_markers = { ".git", "build.zig", "zls.json" },
+        settings = {
+          zls = {
+            enable_inlay_hints = true,
+            enable_snippets = true,
+            warn_style = true,
           }
         }
-      }
+      })
 
       local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
@@ -126,13 +85,9 @@ return {
         },
         mapping = cmp.mapping.preset.insert({
           ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-          ["<C-k>"] = cmp.mapping.select_prev_item(cmp_select),
           ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-          ["<C-j>"] = cmp.mapping.select_next_item(cmp_select),
           ["<C-y"] = cmp.mapping.confirm({ select = true }),
           ["<C-Space>"] = cmp.mapping.complete(),
-          ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
@@ -147,7 +102,7 @@ return {
           focusable = false,
           style = "minimal",
           border = "rounded",
-          source = "always",
+          source = true,
           header = "",
           prefix = "",
         },

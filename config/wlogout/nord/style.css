@@ -1,0 +1,44 @@
+@import "nord/nord.css";
+
+* {
+  all: unset;
+  background-image: none;
+  transition: 200ms ease-in-out;
+}
+
+window {
+  font-family: "Mononoki Nerd Font";
+  font-size: 24px;
+  background-color: @nord0;
+}
+
+button {
+  margin: 12rem 1.5rem;
+  background-color: @nord2;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20%;
+  color: @nord4;
+  border-radius: 2rem;
+  padding: 3rem;
+}
+
+button:hover {
+  background-color: @nord1;
+}
+
+#lock {
+  background-image: url("nord/icons/padlock.png");
+}
+
+#reboot {
+  background-image: url("nord/icons/refresh.png");
+}
+
+#shutdown {
+  background-image: url("nord/icons/switch.png");
+}
+
+#logout {
+  background-image: url("nord/icons/profile.png");
+}

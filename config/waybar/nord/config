@@ -1,0 +1,134 @@
+{
+    "height": 34,
+    "modules-left": ["hyprland/workspaces#kanji"],
+    "modules-center": ["custom/swaync"],
+    "modules-right": ["network", "cpu", "memory", "clock", "pulseaudio", "tray", "custom/power"],
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "hyprland/workspaces": {
+      "active-only": false,
+      "all-outputs": true,
+      "format": "{icon}",
+      "show-special": false,
+      "on-click": "activate",
+      "on-scroll-up": "hyprctl dispatch workspace e+1",
+      "on-scroll-down": "hyprctl dispatch workspace e-1",
+      "persistent-workspaces": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+      },
+      "format-icons": {
+        "active": "",
+        "default": "",
+      },
+    },
+    "hyprland/workspaces#kanji": {
+      "disable-scroll": true,
+      "show-special": false,
+      "all-outputs": true,
+      "format": "{icon}",
+      "persistent-workspaces": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+      },
+      "format-icons": {
+        "1": "一",
+        "2": "二",
+        "3": "三",
+        "4": "四",
+        "5": "五",
+        "6": "六",
+        "7": "七",
+        "8": "八",
+        "9": "九",
+        "10": "十",
+      }
+    },
+    "custom/swaync": {
+      "format": "{} {icon}",
+      "format-icons": {
+        // #bf616a = nord11
+        "notification": "<span foreground='#bf616a'><sup></sup></span>",
+        "none": "",
+        "dnd-notification": "<span foreground='#bf616a'><sup></sup></span>",
+        "dnd-none": "",
+        "inhibited-notification": "<span foreground='#bf616a'><sup></sup></span>",
+        "inhibited-none": "",
+        "dnd-inhibited-notification": "<span foreground='#bf616a'><sup></sup></span>",
+        "dnd-inhibited-none": ""
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "sleep 0.1 && swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "escape": true,
+    },
+    "sway/window": {
+        "max-length": 50
+    },
+    "pulseaudio": {
+        "format": "{icon}  {volume}%      {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": "  {icon}  {format_source}",
+        "format-muted": "   {format_source}",
+        "format-source": "  {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "portable": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "network": {
+        "format-wifi": "  ({signalStrength}%)",
+        "format-ethernet": "  {ipaddr}",
+        "format-linked": "  {ifname} (No IP)",
+        "format-disconnected": "⚠  Disconnected"
+    },
+    "network#speed": {
+      "interval": 1,
+      "format": "{ifname}",
+      "format-wifi": "{icon}  {bandwidthUpBytes}  {bandwidthDownBytes}",
+      "format-ethernet": "󰌘  {bandwidthUpBytes}  {bandwidthDownBytes}",
+      "format-disconnected": "󰌙",
+      "tooltip-format": "{ipaddr}",
+      "format-linked": "󰈁 {ifname} (No IP)",
+      "tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
+      "tooltip-format-ethernet": "{ifname} 󰌘",
+      "tooltip-format-disconnected": "󰌙 Disconnected",
+      "min-length": 24,
+      "max-length": 24,
+      "format-icons": [
+        "󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
+      ]
+    },
+    "cpu": {
+        "format": "  {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "  {}%"
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "  {:%m-%d   %H:%M}"
+    },
+    "custom/power": {
+        "format": "⏻ ",
+        "on-click": "~/.config/hypr/scripts/wlogout.sh",
+        "tooltip": true,
+        "tooltip-format": "Left Click: Logout Menu\nRight Click: Change Blur",
+    },
+    "tray": {
+        "spacing": 10,
+    },
+}

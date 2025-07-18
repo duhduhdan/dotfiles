@@ -66,7 +66,6 @@ return {
         refresh = 50
       },
       indent = { enabled = true },
-      scroll = { enabled = true },
       words = { enabled = true },
       input = { enabled = true },
       zen = { enabled = true },
@@ -74,6 +73,7 @@ return {
     keys = {
       { "<leader>tt",  function() Snacks.terminal() end,                  desc = "Toggle Terminal" },
       { "<leader>un",  function() Snacks.notifier.hide() end,             desc = "Dismiss All Notifications" },
+      { "<leader>us",  function() Snacks.notifier.show_history() end,     desc = "Dismiss All Notifications" },
       { "<leader>zz",  function() Snacks.zen() end,                       desc = "Toggle Zen" },
       { "<leader>e",   function() Snacks.explorer() end,                  desc = "File Explorer" },
       { "<leader>ff",  function() Snacks.picker.smart() end,              desc = "Smart Find Files" },
@@ -87,6 +87,8 @@ return {
       { "<leader>pws", function() Snacks.picker.grep_word() end,          desc = "Visual selection or word", mode = { "n", "x" } },
       { "<leader>td",  function() Snacks.picker.diagnostics() end,        desc = "Diagnostics" },
       { "<leader>tb",  function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer diagnostics" },
+      { "]]",          function() Snacks.words.jump(vim.v.count1) end,    desc = "Next Reference",           mode = { "n", "t" } },
+      { "[[",          function() Snacks.words.jump(-vim.v.count1) end,   desc = "Prev Reference",           mode = { "n", "t" } },
     },
     init = function()
       local progress = vim.defaulttable()

@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find ~/work/gemini-mobile ~/dotfiles ~/experiment -mindepth 0 -maxdepth 1 -type d | fzf)
+  selected=$(find ~/.config ~/.local/bin ~/external ~/dev ~/books ~/.steam/steam/steamapps/compatdata/2781714863/pfx/drive_c -mindepth 0 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
