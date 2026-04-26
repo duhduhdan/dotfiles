@@ -6,8 +6,8 @@ window {
 
 * {
   font-family: "JetBrainsMono Nerd Font";
-  font-size: 14px;
   font-weight: 600;
+  font-size: 12px;
 }
 
 /*
@@ -21,10 +21,16 @@ window {
 }
 
 #workspaces button {
+  font-size: 14px;
   margin-left: 8px;
-  padding: 0px 4px;
-  color: @nord7;
+  padding: 0px 2px;
+  color: @nord5;
   margin-top: 0;
+  background-color: transparent;
+}
+
+#workspaces button.active {
+  color: @nord10;
 }
 
 #workspaces button.hover {
@@ -52,7 +58,8 @@ window {
 #clock,
 #tray,
 #custom-power {
-  color: @nord4;
+  /* font-size: 14px; */
+  color: @nord5;
 }
 
 #custom-swaync {
@@ -60,23 +67,25 @@ window {
 }
 
 #custom-power {
-  background-color: @nord15;
-  padding: 0 12px;
+  /* background-color: @nord15; */
+  /* padding: 0 12px; */
+  padding-right: 12px;
 }
 
 #clock {
-  background-color: @nord3;
-  padding: 0 24px;
+  /* background-color: @nord3; */
+  /* padding: 0 12px; */
+  padding-right: 24px;
 }
 
 #pulseaudio {
-  background-color: @nord10;
-  padding-right: 24px;
-  padding-left: 24px;
+  /* background-color: @nord10; */
+  padding-right: 12px;
+  /* padding-left: 24px; */
 }
 
 #pulseaudio.muted {
-  background-color: @nord13;
+  /* background-color: @nord13; */
   color: @nord3;
 }
 
@@ -98,21 +107,19 @@ window {
   padding-left: 24px;
 }
 
-
 #network.disconnected {
   background-color: @nord13;
   color: @nord0;
 }
 
-#network.disabled
- {
+#network.disabled {
   background-color: @nord15;
   color: @nord0;
 }
 
 #tray {
-  padding: 0 12px;
-  background-color: @nord9;
+  padding: 0 24px;
+  /* background-color: @nord9; */
 }
 
 #tray menu {

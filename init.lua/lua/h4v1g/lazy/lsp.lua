@@ -52,7 +52,7 @@ return {
           Lua = {
             runtime = { version = "Lua 5.4.7" },
             diagnostics = {
-              globals = { "vim", "it", "describe", "before_each", "after_each", "Snacks" },
+              globals = { "vim", "it", "describe", "before_each", "after_each", "Snacks", "love" },
             },
             workspace = {
               library = {
@@ -99,7 +99,7 @@ return {
 
       vim.diagnostic.config({
         float = {
-          focusable = false,
+          focusable = true,
           style = "minimal",
           border = "rounded",
           source = true,

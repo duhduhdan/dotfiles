@@ -1,8 +1,8 @@
 {
     "height": 34,
-    "modules-left": ["hyprland/workspaces#kanji"],
-    "modules-center": ["custom/swaync"],
-    "modules-right": ["network", "cpu", "memory", "clock", "pulseaudio", "tray", "custom/power"],
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio", "tray", "custom/power"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -22,34 +22,18 @@
         "5": [],
       },
       "format-icons": {
-        "active": "",
-        "default": "",
+        "default": "",
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8",
+        "9": "9",
+        "active": "󱓻"
       },
-    },
-    "hyprland/workspaces#kanji": {
-      "disable-scroll": true,
-      "show-special": false,
-      "all-outputs": true,
-      "format": "{icon}",
-      "persistent-workspaces": {
-        "1": [],
-        "2": [],
-        "3": [],
-        "4": [],
-        "5": [],
-      },
-      "format-icons": {
-        "1": "一",
-        "2": "二",
-        "3": "三",
-        "4": "四",
-        "5": "五",
-        "6": "六",
-        "7": "七",
-        "8": "八",
-        "9": "九",
-        "10": "十",
-      }
     },
     "custom/swaync": {
       "format": "{} {icon}",
@@ -75,7 +59,7 @@
         "max-length": 50
     },
     "pulseaudio": {
-        "format": "{icon}  {volume}%      {format_source}",
+        "format": "{icon}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": "  {icon}  {format_source}",
         "format-muted": "   {format_source}",
@@ -120,7 +104,7 @@
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "  {:%m-%d   %H:%M}"
+        "format": "{:%b %d • %H:%M}"
     },
     "custom/power": {
         "format": "⏻ ",
@@ -129,6 +113,6 @@
         "tooltip-format": "Left Click: Logout Menu\nRight Click: Change Blur",
     },
     "tray": {
-        "spacing": 10,
+        "spacing": 24,
     },
 }

@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+if [[ $# -eq 0 ]]; then
+    echo "Usage: unit-convert <value><unit>"
+    echo "Examples:"
+    echo "  unit-convert 5in    # Convert 5 inches to centimeters"
+    echo "  unit-convert 12.7cm # Convert 12.7 centimeters to inches"
+    exit 1
+fi
+
+input="$1"
+
+if [[ $input =~ ^([0-9]*\.?[0-9]+)(in|cm)$ ]]; then
+    value="${BASH_REMATCH[1]}"
+    unit="${BASH_REMATCH[2]}"
+else
+    echo "Error: Invalid input format. Use format like '5in' or '12.7cm'"
+    exit 1
+fi
+
+if [[ $unit == "in" ]]; then
+    result=$(echo "$value * 2.54" | bc -l)
+    printf "%.2f inches = %.2f cm\n" "$value" "$result"
+elif [[ $unit == "cm" ]]; then
+    result=$(echo "$value / 2.54" | bc -l)
+    printf "%.2f cm = %.2f inches\n" "$value" "$result"
+fi
